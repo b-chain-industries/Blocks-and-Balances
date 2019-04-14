@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style media="screen">
+        #statusNav{
+            width: 100%;
+            display: flex;
+        }
+        .tab{
+            width: 200px;
+            padding: 20px;
+            cursor: pointer;
+        }
+        .tab:hover{
+            background: grey;
+        }
+        #viewport{
+            width: 100%;
+            min-height: 100vh;
+            border: 5px groove red;
+            margin: 0;
+            padding: 30px;
+        }
+
+
+        /* loader css */
+        .loader {
+          border: 10px solid #f3f3f3; /* Light grey */
+          border-top: 10px solid #3498db; /* Blue */
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main/init.js"></script>
+
+    <script type="text/javascript">
+        // var testObj = { id: "1", username: "dylan", status: "0", balance: "0" };
+        var user;
+        var uid;
+        
+    </script>
+    
+</head>
+<body>
+    <h1>Hello <span id="usernameDisplay"></span>!</h1>
+    <p>Current Balance: <span id="balance"></span></p>
+
+    <nav id="statusNav">
+         <div class="loader"></div>
+    </nav>
+
+    <div id="viewport">viewport</div>
+
+    
+
+</body>
+</html>
+<script type="text/javascript" src="js/main/nav.js"></script>
+<script src="viewports/controllers/messenger.js"></script>
