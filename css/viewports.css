@@ -1,3 +1,7 @@
 /* ------child request------- */
-
+.table{
+    width: 600px;
+    height: 100px;
+    background-color: grey;
+}
 /* ------End of child request------- */
