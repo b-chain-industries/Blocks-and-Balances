@@ -44,20 +44,14 @@ $.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id:
 // sets the user with the nav bar associated with their account status
 function initNav(status){
     if (status == 0) {
-        statusNav.style.backgroundColor = "blue";
         statusNav.innerHTML =
-        `<div id="initTab" class="tab" onclick="getViewport('test1')">child tab 1</div>
-         <div class="tab" onclick="getViewport('test2')">child tab 2</div>
-         <div class="tab" onclick="getViewport('test3')">child tab 3</div>
-          <div class="tab" onclick="getViewport('test4')">child tab 4</div>
-          <div class="tab" onclick="getViewport('messenger')">child messenger</div>`;
+        `<div id="initTab" class="tab" onclick="getViewport('childRequest')">Requests</div>
+        <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
+         <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     } else {
-        statusNav.style.backgroundColor = "green";
         statusNav.innerHTML =
-        `<div id="initTab" class="tab" onclick="getViewport('test1')">master tab 1</div>
-         <div class="tab" onclick="getViewport('test2')">master tab 2</div>
-         <div class="tab" onclick="getViewport('test3')">master tab 3</div>
-          <div class="tab" onclick="getViewport('test4')">master tab 4</div>
-          <div class="tab" onclick="getViewport('messenger')">master messenger</div>`;
+        `<div id="initTab" class="tab" onclick="getViewport('master-request')">Requests</div>
+        <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
+         <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     }
 }
