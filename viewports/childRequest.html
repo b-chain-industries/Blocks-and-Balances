@@ -1,6 +1,42 @@
 <div id="content">
-    <div class="table">
+    <h2>Request</h2>
+    <div class="pending-holder">
+        <div class="table">
+            <div class="amount chart-section">
+                <span>Amount</span>
+                <select>
+                    <option value="5">$5</option>
+                    <option value="10">$10</option>
+                    <option value="15">$15</option>
+                    <option value="20">$20</option>
+                    <option value="25">$25</option>
+                    <option value="30">$30</option>
+                    <option value="35">$35</option>
+                    <option value="40">$40</option>
+                        
+                    </select>
+            </div>
+            <div class="description chart-section">
+                <textarea  id="request-description" cols="60" rows="3" placeholder="Description"></textarea>
+            </div>
+            <div class="status">
+                <input type="radio"/>
+                <span>Master 1</span>
+                <input type="radio"/>
+                <span>Master 2</span>
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="border"></div>
+    <h2>Pending Resquest</h2>
+    <div id="displayPending">
 
     </div>
 
+
+    <script type="text/javascript">
+        var requestId;
+        getPending();
+    </script>
 </div>

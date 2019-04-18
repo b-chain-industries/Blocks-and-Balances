@@ -1,4 +1,65 @@
 
 /* ------child request------- */
+.pending-holder{
+    width: 80%; 
+    margin: 15px 0;
+}
+.table{
+    width: 100%;
+    height: auto;
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.description{
+    border-left: 2px solid #fff;
+    
+}
+#request-description{
+    resize: none;
+}
+.chart-section{
+    padding: 40px;
+}
+.status{
+    width: 20%;
+    border-left: 2px solid #fff;
+    padding: 40px;
+}
+.border{
+    margin-top: 40px;
+    width: 60%;
+    border-bottom: 2px solid black;
+}
+.pending{
+    border-bottom: 2px solid black;
+}
+.comment-section{
+    background-color: grey;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+}
+#commentBtn:hover{
+    cursor: pointer;
+    color: #fff;
+}
+.display-comment{
+    width: 100%;
+    background:grey;
+    text-align: left;
+}
+.comment{
+    margin: 10px;
+    border-bottom: 2px solid white;
+}
+#addComment{
+    resize: none;
+    width: 80%;
+}
+#displayPending{
+    width: 100%;
+}
 
 /* ------End of child request------- */
