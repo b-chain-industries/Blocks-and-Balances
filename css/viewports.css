@@ -53,6 +53,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0px;
 }
 .description{
     border-left: 2px solid #fff;
