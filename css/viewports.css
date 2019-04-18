@@ -41,7 +41,7 @@
 
 /* End Global Viewport Stlyes */
 
-/* ------child request------- */
+/* ------Child Request------- */
 .pending-holder{
     width: 80%; 
     margin: 15px 0;
@@ -105,23 +105,20 @@
     width: 100%;
 }
 
-/* ------End of child request------- */
+/* ------End of Child Request------- */
 
 /* Transaction History Styles */
 
 #trans_hist {
-    display: flex;
     width: 100%;
-    height: auto;
-    padding: 2em;
-    background-color: blue;
+    height: 30px;
+    padding: 10px;
+    display: flex;
 }
 
 .amount, .description, .status {
     justify-content: flex-start;
-    color: #fff;
+    background-color: grey;
 }
 
 /* End Transaction History Styles */
-
-
