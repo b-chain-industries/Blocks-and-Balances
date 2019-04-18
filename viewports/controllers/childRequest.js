@@ -1,8 +1,10 @@
 function getPending(){
-    $.get( "http://blocksandbalancesserver.000webhostapp.com/transactions/pending.php", function( data ) {
+
+    
+    
+    $.get( "http://blocksandbalancesserver.000webhostapp.com/transactions/pending.php?id="+uid, function( data ) {
     data = JSON.parse(data);
     data.forEach(element => {
-        console.log(element);
         
 
         var commentSection = "";
