@@ -119,7 +119,7 @@
 
 .amount, .description, .status {
     justify-content: flex-start;
-    color:
+    color: #fff;
 }
 
 /* End Transaction History Styles */
