@@ -50,7 +50,7 @@ function initNav(status){
          <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     } else {
         statusNav.innerHTML =
-        `<div id="initTab" class="tab" onclick="getViewport('master-request')">Requests</div>
+        `<div id="initTab" class="tab" onclick="getViewport('masterRequest')">Requests</div>
         <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
          <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     }
