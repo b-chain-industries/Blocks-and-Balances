@@ -106,19 +106,3 @@
 }
 
 /* ------End of Child Request------- */
-
-/* Transaction History Styles */
-
-#trans_hist {
-    width: 100%;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-}
-
-.amount, .description, .status {
-    justify-content: flex-start;
-    background-color: grey;
-}
-
-/* End Transaction History Styles */
