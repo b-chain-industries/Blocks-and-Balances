@@ -4,7 +4,7 @@
         <div class="table">
             <div class="amount chart-section">
                 <span>Amount</span>
-                <select>
+                <select id="amountSelect">
                     <option value="5">$5</option>
                     <option value="10">$10</option>
                     <option value="15">$15</option>
@@ -16,14 +16,14 @@
                 </select>
             </div>
             <div class="description chart-section">
-                <textarea  id="request-description" cols="60" rows="3" placeholder="Description"></textarea>
+                <textarea  id="requestDescription" cols="60" rows="3" placeholder="Description"></textarea>
             </div>
             <div class="status">
-                <input type="radio"/>
+                <input name="masterSelect" type="radio" value="1"/>
                 <span>Master 1</span>
-                <input type="radio"/>
+                <input name="masterSelect" type="radio" value="2"/>
                 <span>Master 2</span>
-                <button>Submit</button>
+                <button onclick="sendRequest()">Submit</button>
             </div>
         </div>
     </div>
