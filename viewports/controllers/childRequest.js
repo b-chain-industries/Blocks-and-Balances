@@ -7,8 +7,11 @@ function sendRequest(){
     var amount = selectAmount.options[selectAmount.selectedIndex].value;
     //getting the value of message
     var userDescriptoion = document.getElementById('requestDescription').value;
+    // making an empty vaiable to set the status of each transaction
     var status = "";
+    // making varibale for the radio button 
     var radioSelect = document.getElementsByName('masterSelect');
+    // making a loop that gets which master sent the request to
     for (var i =0; i < radioSelect.length;i++){
         if (radioSelect[i].checked){
 
@@ -16,6 +19,7 @@ function sendRequest(){
         }
         
     }
+    //getting different parameters
     var params = {
         amount: amount,
         description: userDescriptoion,
