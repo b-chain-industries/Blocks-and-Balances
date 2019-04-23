@@ -3,7 +3,9 @@
 function sendRequest(){
     // getting the amount select
     var selectAmount = document.getElementById('amountSelect');
+    //getting the value of amount 
     var amount = selectAmount.options[selectAmount.selectedIndex].value;
+    //getting the value of message
     var userDescriptoion = document.getElementById('requestDescription').value;
     var status = "";
     var radioSelect = document.getElementsByName('masterSelect');
