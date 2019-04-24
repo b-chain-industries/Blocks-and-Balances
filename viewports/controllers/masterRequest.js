@@ -1,7 +1,5 @@
 // Fires to make sure everything is in order
 function getMasterPending(){
-    
-    
 // Sending server info to get correct info back
     let param = { 
         relationId: user.relation_id,
@@ -37,9 +35,9 @@ function getMasterPending(){
                  <span>` +element.pendingRequest.description+ `</span>
              </div>
              <div id="status">
-                 <input name="requestStatus" type="radio" value="0"/>
-                 <span>Approve</span>
                  <input name="requestStatus" type="radio" value="1"/>
+                 <span>Approve</span>
+                 <input name="requestStatus" type="radio" value="0"/>
                  <span>Denied</span>
                  <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
              </div>
@@ -56,7 +54,58 @@ function getMasterPending(){
              </div>
  
      </div>`;
-// Adds the temple to the HTML target
+// Adds the templete to the HTML target
+console.log(element);
+console.log(element.pendingRequest.master_approval);
+
+ if (element.pendingRequest.master_approval >= 0 && element.pendingRequest.master_requested == user.id){
+     template = `<div class="pending-holder">
+    <div class="table pending">
+        <div class="amount chart-section">
+            <span>` +element.pendingRequest.amount+ `</span>
+        </div>
+        <div class="description chart-section">
+            <span>` +element.pendingRequest.description+ `</span>
+        </div>
+
+    </div>
+
+    <div class="comment-section">
+            <span id="commentBtn">Comment</span>
+            <div class="display-comment">
+                `+commentTemplate+`
+            </div>
+            <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
+            <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
+        </div>
+
+</div>`
+ }
+
+ if (element.pendingRequest.miner_approval >= 0 && element.pendingRequest.miner == user.id){
+    template = `<div class="pending-holder">
+   <div class="table pending">
+       <div class="amount chart-section">
+           <span>` +element.pendingRequest.amount+ `</span>
+       </div>
+       <div class="description chart-section">
+           <span>` +element.pendingRequest.description+ `</span>
+       </div>
+
+   </div>
+
+   <div class="comment-section">
+           <span id="commentBtn">Comment</span>
+           <div class="display-comment">
+               `+commentTemplate+`
+           </div>
+           <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
+           <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
+       </div>
+
+</div>`
+}
+console.log(user);
      document.getElementById("master-content").innerHTML += template;
 
     })
@@ -66,6 +115,9 @@ function getMasterPending(){
 
 
 
+// ************************End of Receiving Request*********************
+
+// ************************Start of Responding Request******************
 
 
 // Function that submits final request
@@ -84,10 +136,15 @@ function submitRequest(x){
     // tells server who, what and where the request/approval will go
     let param = {
         userId: user.id,
-        request_id: x,
+        requestId: x,
         approved: status,
     
     }
+    $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/approveTransaction.php', param, function (data){
+    console.log(data);
+    
+    })
+
     
     
 }
@@ -112,3 +169,4 @@ function masterRequest(x){
 
 
 }
+
