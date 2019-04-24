@@ -106,3 +106,60 @@
 }
 
 /* ------End of Child Request------- */
+
+/* Begin Messenger Styles */
+
+.chat_container {
+    height: 80%;
+    width: 100%;
+    max-width: 800px;
+}
+
+#messages {
+    border: 5px #000 ridge;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+
+.other_user {
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    border-radius: 7px;
+    align-self: flex-start      
+}
+
+.user {
+    width: 200px;
+    height: 50px;
+    background-color: grey;
+    border-radius: 7px;
+    align-self: flex-end
+
+}
+
+.input {
+    display: flex;
+    height: 40px;
+
+}
+
+#chat_input {
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
+
+.send {
+    width: 80px;
+    height: 100%;
+    border: 3px ridge #000;
+    margin-left: 5px;
+}
+
+
+/* End Messenger Styles */
