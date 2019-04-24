@@ -35,22 +35,25 @@ function sendRequest(){
     })
 
 }
-
+//making function to process the request
 function request(x){
+    //comment variable plus the "x" for request ID
     var comment = document.getElementById('addComment'+x).value;
-    
-    var params = {
-        requestId:x,
-        username:user.username,
-        comment:comment,
+    if(comment == ""){
+        alert("No comments added");
+    }else{
+        var params = {
+            requestId:x,
+            username:user.username,
+            comment:comment,
+        }
+        $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
+            
+            getPending();
+            
+        });
     }
-
-    
-    $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
-        
-        getPending();
-        
-    })
+   
     
     
 }
@@ -66,7 +69,7 @@ function getPending(){
         relationId : parseInt(user.relation_id),
         userId : parseInt(user.id),
     };
-    
+    console.log(user);
     //Posting user information from our data base to the browser
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) {
         //clearing old HTML without refreshing the browsers
