@@ -1,5 +1,5 @@
 function getTransactionHistory(){
-    $.ajax({url: "http://blocksandbalancesserver.000webhostapp.com/transactions/transaction-history.php", success:
+    $.ajax({url: "http://blocksandbalancesserver.000webhostapp.com/practice/transaction-history.php", success:
      function(result){
         const transHist = JSON.parse(result)
         transHist.forEach(function(result){
