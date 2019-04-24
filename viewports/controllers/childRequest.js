@@ -78,7 +78,15 @@ function showComments(x){
   
   
 }
-
+function DisplayStatus(){
+    var statusDisplay = $('#statusDisplay');
+    if(statusDisplay.innerHTML == "1"){
+        "approve"
+    }else(statusDisplay.innerHTML == "0"){
+        "Denied"
+    }
+   
+}
 
 
 
@@ -124,8 +132,8 @@ function getPending(){
                 <span>`+element.pendingRequest.description+`</span>
             </div>
             <div class="status">
-                <span>`+element.pendingRequest.master_approval+`</span><br/>
-                <span>`+element.pendingRequest.miner_approval+`</span>
+                <span id="statusDisplay">`+element.pendingRequest.master_approval+`</span><br/>
+                <span id="statusDisplay">`+element.pendingRequest.miner_approval+`</span>
             </div>
         </div>
         <div class="comment-section">
