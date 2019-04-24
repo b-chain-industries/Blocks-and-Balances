@@ -7,8 +7,11 @@ function sendRequest(){
     var amount = selectAmount.options[selectAmount.selectedIndex].value;
     //getting the value of message
     var userDescriptoion = document.getElementById('requestDescription').value;
+    // making an empty vaiable to set the status of each transaction
     var status = "";
+    // making varibale for the radio button 
     var radioSelect = document.getElementsByName('masterSelect');
+    // making a loop that gets which master sent the request to
     for (var i =0; i < radioSelect.length;i++){
         if (radioSelect[i].checked){
 
@@ -16,6 +19,7 @@ function sendRequest(){
         }
         
     }
+    //getting different parameters
     var params = {
         amount: amount,
         description: userDescriptoion,
@@ -23,35 +27,52 @@ function sendRequest(){
         relationId : user.relation_id,
         masterRequested : status,
     }
-    console.log(params);
-
+    //posting to data base to get response for the parameters
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addTransaction.php', params, function (data){
-        console.log(data);
 
         getPending();
         
     })
-
-}
-
-function request(x){
-    var comment = document.getElementById('addComment'+x).value;
     
-    var params = {
+}
+//making function to process the request
+function request(x){
+    //comment variable plus the "x" for request ID
+    var comment = document.getElementById('addComment'+x).value;
+    if(comment == ""){
+        alert("No comments added");
+    }else{
+        var params = {
+            requestId:x,
+            username:user.username,
+            comment:comment,
+        }
+        $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
+            
+            getPending();
+            
+        });
+    }
+    
+}
+function showComments(x){
+   var displayComment = $('#commentDisplay'+x);
+   
+   var params = {
         requestId:x,
         username:user.username,
-        comment:comment,
     }
+   if(displayComment.css("display") == "none"){
 
-    console.log(params);
-    $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
-        console.log(data);
-
-        getPending();
-        
-    })
+       displayComment.show();
+      
+   }else{
+       displayComment.hide();
+                     
     
-    
+   }
+  
+  console.log(displayComment.css())
 }
 
 
@@ -65,7 +86,7 @@ function getPending(){
         relationId : parseInt(user.relation_id),
         userId : parseInt(user.id),
     };
-    
+    console.log(user);
     //Posting user information from our data base to the browser
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) {
         //clearing old HTML without refreshing the browsers
@@ -105,11 +126,12 @@ function getPending(){
         </div>
         <div class="comment-section">
             <span id="commentBtn">Comment</span>
-            <div class="display-comment">
+            <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                `+commentSection+`
             </div>
             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
             <button onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+            <button onclick='showComments(`+element.pendingRequest.request_id+`)'>comment</button>
         </div>
     </div>`
     // setting our information in our HTML file
@@ -118,16 +140,6 @@ function getPending(){
     
     
     });
-
-
-
-
-
-
-
-
-
-
 
   });
 }
