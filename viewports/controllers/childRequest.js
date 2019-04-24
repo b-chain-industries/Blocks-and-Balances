@@ -27,10 +27,8 @@ function sendRequest(){
         relationId : user.relation_id,
         masterRequested : status,
     }
-    console.log(params);
-
+    //posting to data base to get response for the parameters
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addTransaction.php', params, function (data){
-        console.log(data);
 
         getPending();
         
@@ -47,10 +45,9 @@ function request(x){
         comment:comment,
     }
 
-    console.log(params);
+    
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
-        console.log(data);
-
+        
         getPending();
         
     })
