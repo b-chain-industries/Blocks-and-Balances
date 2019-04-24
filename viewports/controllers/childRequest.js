@@ -33,7 +33,7 @@ function sendRequest(){
         getPending();
         
     })
-
+    
 }
 //making function to process the request
 function request(x){
@@ -53,9 +53,26 @@ function request(x){
             
         });
     }
+    
+}
+function showComments(x){
+   var displayComment = $('#commentDisplay'+x);
    
+   var params = {
+        requestId:x,
+        username:user.username,
+    }
+   if(displayComment.css("display") == "none"){
+
+       displayComment.show();
+      
+   }else{
+       displayComment.hide();
+                     
     
-    
+   }
+  
+  console.log(displayComment.css())
 }
 
 
@@ -109,11 +126,12 @@ function getPending(){
         </div>
         <div class="comment-section">
             <span id="commentBtn">Comment</span>
-            <div class="display-comment">
+            <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                `+commentSection+`
             </div>
             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
             <button onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+            <button onclick='showComments(`+element.pendingRequest.request_id+`)'>comment</button>
         </div>
     </div>`
     // setting our information in our HTML file
@@ -122,16 +140,6 @@ function getPending(){
     
     
     });
-
-
-
-
-
-
-
-
-
-
 
   });
 }
