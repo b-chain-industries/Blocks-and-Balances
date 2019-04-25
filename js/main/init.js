@@ -23,7 +23,6 @@ $.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id:
     data = JSON.parse(data);
     user = data;
 
-    // console.log(data);
     // elements to populate
     var userDisplay = document.getElementById('usernameDisplay');
     var statusNav = document.getElementById('statusNav');

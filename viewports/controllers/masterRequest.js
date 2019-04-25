@@ -1,9 +1,17 @@
 
 function getMasterPending(){
-    $.get( "http://blocksandbalancesserver.000webhostapp.com/transactions/pending.php", function( data ) { 
+    var params = {
+        userId: parseInt(user.id),
+        relationId: parseInt(user.relation_id)
+    }
+    console.log(params);
+    
+    $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) { 
+        
+        
     const block = JSON.parse(data);
-
-
+    console.log(block);
+    
     
     block.forEach(function(element){
         let commentTemplate = "";
@@ -17,6 +25,22 @@ function getMasterPending(){
             commentTemplate += temp;
         });
 
+        let approve = `<div class="status">
+        <input type="radio"/>
+        <span>Approve</span>
+        <input type="radio"/>
+        <span>Denied</span>
+        <button>Submit</button>
+    </div>`
+    console.log(element.pendingRequest.master_requested);
+    // console.log(user.id);
+    
+    
+
+        if(element.pendingRequest.master_approval >=0 && element.pendingRequest.master_requested == user.id){
+            approve = ``;
+        }
+
 
          let template = `<div class="pending-holder">
          <div class="table pending">
@@ -26,13 +50,7 @@ function getMasterPending(){
              <div class="description chart-section">
                  <span>` +element.pendingRequest.description+ `</span>
              </div>
-             <div class="status">
-                 <input type="radio"/>
-                 <span>Approve</span>
-                 <input type="radio"/>
-                 <span>Denied</span>
-                 <button>Submit</button>
-             </div>
+             `+approve+`
  
          </div>
  
