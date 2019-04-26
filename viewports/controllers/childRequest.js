@@ -39,7 +39,9 @@ function sendRequest(){
 function request(x){
     //comment variable plus the "x" for request ID
     var comment = document.getElementById('addComment'+x).value;
+
     //if comment is empty pop an alert
+
     if(comment == ""){
         alert("No comments added");
     }else{
@@ -56,23 +58,28 @@ function request(x){
     }
     
 }
+
 //function to hide the comments
 function showComments(x){
     //targetting the elements with the argument
    var displayComment = $('#commentDisplay'+x);
    //getting the parameters of the array
+
    var params = {
         requestId:x,
         username:user.username,
     }
+
     //if display is none 
    if(displayComment.css("display") == "none"){
     //show the the elements
        displayComment.show();
       //otherwise hide the elements
+
    }else{
        displayComment.hide();
    }
+
 }
 
 function childApproved(x){
