@@ -78,15 +78,18 @@ function showComments(x){
 
    }else{
        displayComment.hide();
-                     
-    
    }
-  
 
 }
 
-
-
+function childApproved(x){
+    var params ={
+        requestId:x
+    }
+    $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/childApproval.php',params,function(data){
+    console.log(data)
+    })
+}
 
 
 // function for pending requests
@@ -120,6 +123,30 @@ function getPending(){
             //setting comment section to comment template to place in the html format by adding one to it
             commentSection += commentTemplate;
         })
+        //displaying status for master
+        if(element.pendingRequest.master_approval == "0"){
+            element.pendingRequest.master_approval = "Denied"
+        }else if(element.pendingRequest.master_approval == "1"){
+            element.pendingRequest.master_approval = "Approved"
+        }else if(element.pendingRequest.master_approval == null){
+            element.pendingRequest.master_approval = "Pending"
+        }
+        //displaying status for miner
+        if(element.pendingRequest.miner_approval == "0"){
+            element.pendingRequest.miner_approval = "Denied"
+        }else if(element.pendingRequest.miner_approval == "1"){
+            element.pendingRequest.miner_approval = "Approved"
+        }else if(element.pendingRequest.miner_approval == null){
+            element.pendingRequest.miner_approval = "Pending"
+        }
+        //approvalhtml is for to place the transaction status
+        let approvedHtml = 
+        `<span id="statusDisplay">`+element.pendingRequest.master_approval+`</span><br/>
+        <span id="statusDisplay">`+element.pendingRequest.miner_approval+`</span>`
+        //child approval
+        if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
+            approvedHtml += `<button onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
+        }
         //template is for placing Amount,description and status of user
         var template = `<div class="pending-holder">
         <div class="table pending">
@@ -130,8 +157,7 @@ function getPending(){
                 <span>`+element.pendingRequest.description+`</span>
             </div>
             <div class="status">
-                <span>`+element.pendingRequest.master_approval+`</span><br/>
-                <span>`+element.pendingRequest.miner_approval+`</span>
+                `+approvedHtml+`
             </div>
         </div>
         <div class="comment-section">
