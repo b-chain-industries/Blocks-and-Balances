@@ -1,48 +1,34 @@
-
+// Fires to make sure everything is in order
 function getMasterPending(){
-    var params = {
-        userId: parseInt(user.id),
-        relationId: parseInt(user.relation_id)
+// Sending server info to get correct info back
+    let param = { 
+        relationId: user.relation_id,
+        userId: user.ID 
     }
-    console.log(params);
+    console.log(param);
     
-    $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) { 
-        
-        
+    $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", param, function( data ) { 
+        document.getElementById("master-content").innerHTML = "";
+// Turing a String into object, array
     const block = JSON.parse(data);
-    console.log(block);
-    
-    
+// Forms the pending list, Loop
     block.forEach(function(element){
+// This is the comment section to be filled by templates below        
         let commentTemplate = "";
+// This fills the comment, Loop
         element.comments.forEach(function(comment){
+// comment template
             let temp = 
             `<div class="comment">
                 <span>`+comment.username+`</span><br/>
                 <span>`+comment.comment+`</span>
             </div>`;
-
+// Allows to add more comments below eachother
             commentTemplate += temp;
         });
 
-        let approve = `<div class="status">
-        <input type="radio"/>
-        <span>Approve</span>
-        <input type="radio"/>
-        <span>Denied</span>
-        <button>Submit</button>
-    </div>`
-    console.log(element.pendingRequest.master_requested);
-    // console.log(user.id);
-    
-    
-
-        if(element.pendingRequest.master_approval >=0 && element.pendingRequest.master_requested == user.id){
-            approve = ``;
-        }
-
-
-         let template = `<div class="pending-holder">
+// Pending request template
+        let template = `<div class="pending-holder">
          <div class="table pending">
              <div class="amount chart-section">
                  <span>` +element.pendingRequest.amount+ `</span>
@@ -50,7 +36,13 @@ function getMasterPending(){
              <div class="description chart-section">
                  <span>` +element.pendingRequest.description+ `</span>
              </div>
-             `+approve+`
+             <div id="status">
+                 <input name="requestStatus" type="radio" value="1"/>
+                 <span>Approve</span>
+                 <input name="requestStatus" type="radio" value="0"/>
+                 <span>Denied</span>
+                 <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+             </div>
  
          </div>
  
@@ -59,20 +51,124 @@ function getMasterPending(){
                  <div class="display-comment">
                      `+commentTemplate+`
                  </div>
-                 <textarea id="addComment" placeholder="Write your comment"></textarea>
-                 <button>Submit</button>
+                 <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
+                 <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
              </div>
  
      </div>`;
+// Adds the templete to the HTML target
+console.log(element);
+console.log(element.pendingRequest.master_approval);
+
+ if (element.pendingRequest.master_approval >= 0 && element.pendingRequest.master_requested == user.id){
+     template = `<div class="pending-holder">
+    <div class="table pending">
+        <div class="amount chart-section">
+            <span>` +element.pendingRequest.amount+ `</span>
+        </div>
+        <div class="description chart-section">
+            <span>` +element.pendingRequest.description+ `</span>
+        </div>
+
+    </div>
+
+    <div class="comment-section">
+            <span id="commentBtn">Comment</span>
+            <div class="display-comment">
+                `+commentTemplate+`
+            </div>
+            <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
+            <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
+        </div>
+
+</div>`
+ }
+
+ if (element.pendingRequest.miner_approval >= 0 && element.pendingRequest.miner == user.id){
+    template = `<div class="pending-holder">
+   <div class="table pending">
+       <div class="amount chart-section">
+           <span>` +element.pendingRequest.amount+ `</span>
+       </div>
+       <div class="description chart-section">
+           <span>` +element.pendingRequest.description+ `</span>
+       </div>
+
+   </div>
+
+   <div class="comment-section">
+           <span id="commentBtn">Comment</span>
+           <div class="display-comment">
+               `+commentTemplate+`
+           </div>
+           <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
+           <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
+       </div>
+
+</div>`
+}
+console.log(user);
      document.getElementById("master-content").innerHTML += template;
 
     })
 
-
-   
-    
-
-
 });
+}
+
+
+
+// ************************End of Receiving Request*********************
+
+// ************************Start of Responding Request******************
+
+
+// Function that submits final request
+function submitRequest(x){
+    
+    // variable to name which button was pushed
+    let status = "";
+    // labels and determines which buttons are pushed
+    let radioBtn = document.getElementsByName("requestStatus");
+    for (var i = 0; i < radioBtn.length; i++){
+        if (radioBtn[i].checked){
+            status = radioBtn[i].value;
+        }
+    }
+
+    // tells server who, what and where the request/approval will go
+    let param = {
+        userId: user.id,
+        requestId: x,
+        approved: status,
+    
+    }
+    $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/approveTransaction.php', param, function (data){
+    console.log(data);
+    
+    })
+
+    
+    
+}
+
+
+// Comments from the master to child
+function masterRequest(x){
+    // adds the new comment is the comment box
+   var comment = document.getElementById('addComment'+x).value;
+    // tells who, where, and what the comment is saying
+   var params = {
+       requestId:x,
+       username:user.username,
+       comment:comment,
+   }
+    //AJAX call to the server to move and transfer the data  
+   $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
+        
+       getMasterPending();
+       
+   })
+
+
 }
 

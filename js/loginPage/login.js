@@ -1,6 +1,6 @@
 var loginForm = $("#login");
 loginForm.submit(function (event){
-    console.log("fired");
+    // console.log("fired");
     
     event.preventDefault();
 
@@ -18,19 +18,28 @@ loginForm.submit(function (event){
             user: user,
             pass: pass
         }
+        
+        
 
         $.post("http://blocksandbalancesserver.000webhostapp.com/user/login.php", params, function(data){
-            console.log("AJAX");
-            
             data = JSON.parse(data);
+            console.log(data);
 
             if (!data.login) {
                 err.innerHTML = data.error;
             }
             if (data.login) {
                 err.innerHTML = "Logging in...";
-                window.location = "testPage.html?id="+data.userId;
-                console.log(data);
+                var base = {
+                    id: data.userId,
+                    token: data.token
+                }
+                var base = JSON.stringify(base);
+                base = btoa(base);                
+                
+                window.location = "testPage.html?user="+base;
+                
+                
                 
             }
 
