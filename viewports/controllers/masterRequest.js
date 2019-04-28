@@ -93,7 +93,13 @@ console.log(element.pendingRequest.master_approval);
        <div class="description chart-section">
            <span>` +element.pendingRequest.description+ `</span>
        </div>
-
+        <div id="status">
+            <input name="requestStatus" type="radio" value="1"/>
+            <span>Approve</span>
+            <input name="requestStatus" type="radio" value="0"/>
+            <span>Denied</span>
+            <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+        </div>
    </div>
 
    <div class="comment-section">
