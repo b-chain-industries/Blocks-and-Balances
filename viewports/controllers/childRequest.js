@@ -23,10 +23,11 @@ function sendRequest(){
     var params = {
         amount: amount,
         description: userDescriptoion,
-        childId : user.id,
+        childId : user.ID,
         relationId : user.relation_id,
         masterRequested : status,
     }
+    console.log(params);
     //posting to data base to get response for the parameters
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addTransaction.php', params, function (data){
 
@@ -50,6 +51,8 @@ function request(x){
             username:user.username,
             comment:comment,
         }
+        
+        
         $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
             
             getPending();
@@ -97,7 +100,7 @@ function getPending(){
     
     let params = {
         relationId : parseInt(user.relation_id),
-        userId : parseInt(user.id),
+        userId : parseInt(user.ID),
     };
     console.log(user);
     //Posting user information from our data base to the browser

@@ -143,7 +143,7 @@ function submitRequest(x){
 
     // tells server who, what and where the request/approval will go
     let param = {
-        userId: user.id,
+        userId: user.ID,
         requestId: x,
         approved: status,
     
