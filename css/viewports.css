@@ -1,3 +1,34 @@
+/* login page  */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9e3da;
+    background-image: url('./img/background.jpg');
+}
+button{
+    padding: 7px;
+}
+.container{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    max-width: 280px;
+}
+#login{
+    display: none;
+}
+#register{
+    display: none;
+}
+
 /* Global Viewport Styles */
 
 #statusNav{

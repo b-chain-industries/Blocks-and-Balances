@@ -90,7 +90,7 @@ function childApproved(x){
         requestId:x
     }
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/childApproval.php',params,function(data){
-    console.log(data)
+    
     })
 }
 
@@ -103,7 +103,7 @@ function getPending(){
         relationId : parseInt(user.relation_id),
         userId : parseInt(user.ID),
     };
-    console.log(user);
+    
     //Posting user information from our data base to the browser
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) {
         //clearing old HTML without refreshing the browsers
