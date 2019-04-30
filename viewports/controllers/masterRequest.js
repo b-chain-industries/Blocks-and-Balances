@@ -5,6 +5,8 @@ function getMasterPending(){
         relationId: user.relation_id,
         userId: user.ID 
     }
+    console.log(param);
+    
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", param, function( data ) { 
         document.getElementById("master-content").innerHTML = "";
 // Turing a String into object, array

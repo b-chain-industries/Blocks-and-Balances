@@ -38,7 +38,14 @@ registerForm.submit(function (event){
             }
             if (data.register) {
                 err.innerHTML = "Registering...";
-                window.location = "testPage.html?id="+data.userId;
+                var base = {
+                    id: data.userId,
+                    token: data.token
+                }
+                var base = JSON.stringify(base);
+                base = btoa(base);                
+                
+                window.location = "testPage.html?user="+base;
             }
         });
     }

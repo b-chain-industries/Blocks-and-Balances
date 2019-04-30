@@ -92,8 +92,8 @@
     width: 100%;
     background:grey;
     text-align: left;
-    overflow: scroll;
-    height: 400px;
+    overflow-y: scroll;
+    max-height: 400px;
     display: none;
 }
 .comment{
