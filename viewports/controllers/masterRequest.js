@@ -57,9 +57,14 @@ function getMasterPending(){
  
      </div>`;
 // Adds the templete to the HTML target
-console.log(element);
 console.log(element.pendingRequest.master_approval);
+console.log(element.pendingRequest.master_requested);
+console.log(user.ID);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3b4a214e7e8bb9c1387921206378db5d7ab1697
  if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
      template = `<div class="pending-holder">
     <div class="table pending">
@@ -94,7 +99,11 @@ console.log(element.pendingRequest.master_approval);
            <span>` +element.pendingRequest.description+ `</span>
        </div>
         <div id="status">
+<<<<<<< HEAD
             
+=======
+           
+>>>>>>> f3b4a214e7e8bb9c1387921206378db5d7ab1697
         </div>
    </div>
 
@@ -109,7 +118,7 @@ console.log(element.pendingRequest.master_approval);
 
 </div>`
 }
-console.log(user);
+// console.log(user);
      document.getElementById("master-content").innerHTML += template;
 
     })
@@ -146,6 +155,7 @@ function submitRequest(x){
     }
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/approveTransaction.php', param, function (data){
     console.log(data);
+    getMasterPending()
     
     })
 
