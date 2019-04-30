@@ -103,15 +103,16 @@ function getPending(){
     $.post("http://blocksandbalancesserver.000webhostapp.com/user/getRelations.php", {relationId: user.relation_id}, function(data){
         data=JSON.parse(data);
         
-        if(master1.username in data){
+        if(typeof master1.username != undefined){
             master1 = data.master1.username;
             $("#master1Display").html(master1);
         }
-        if(master2.username in data){
-                master1 = data.master1.username;
-                $("#master1Display").html(master1);
-                master2 = data.master2.username;
-                $("#master2Display").html(master2);
+        
+        if(typeof master2.username != undefined){
+            master1 = data.master1.username;
+            $("#master1Display").html(master1);
+            master2 = data.master2.username;
+            $("#master2Display").html(master2);
         }
     
         let params = {

@@ -60,7 +60,7 @@ function getMasterPending(){
 console.log(element);
 console.log(element.pendingRequest.master_approval);
 
- if (element.pendingRequest.master_approval >= 0 && element.pendingRequest.master_requested == user.id){
+ if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
      template = `<div class="pending-holder">
     <div class="table pending">
         <div class="amount chart-section">
@@ -84,7 +84,7 @@ console.log(element.pendingRequest.master_approval);
 </div>`
  }
 
- if (element.pendingRequest.miner_approval >= 0 && element.pendingRequest.miner == user.id){
+ if (element.pendingRequest.miner_approval != null && element.pendingRequest.miner == user.ID){
     template = `<div class="pending-holder">
    <div class="table pending">
        <div class="amount chart-section">
@@ -94,11 +94,7 @@ console.log(element.pendingRequest.master_approval);
            <span>` +element.pendingRequest.description+ `</span>
        </div>
         <div id="status">
-            <input name="requestStatus" type="radio" value="1"/>
-            <span>Approve</span>
-            <input name="requestStatus" type="radio" value="0"/>
-            <span>Denied</span>
-            <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+            
         </div>
    </div>
 
