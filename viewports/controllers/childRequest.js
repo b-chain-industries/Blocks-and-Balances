@@ -23,7 +23,7 @@ function sendRequest(){
     var params = {
         amount: amount,
         description: userDescriptoion,
-        childId : user.id,
+        childId : user.ID,
         relationId : user.relation_id,
         masterRequested : status,
     }
@@ -97,7 +97,7 @@ function getPending(){
     
     let params = {
         relationId : parseInt(user.relation_id),
-        userId : parseInt(user.id),
+        userId : parseInt(user.ID),
     };
     console.log(user);
     //Posting user information from our data base to the browser
