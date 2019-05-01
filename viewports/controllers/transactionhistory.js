@@ -19,7 +19,7 @@ function getTransactionHistory(){
                                     <div class="amount chart-section">
                                         Amount: `+result.amount+`
                                     </div>
-                                    <div class="description chart-section">
+                                    <div class="description wchart-section">
                                         `+result.description+`
                                     </div>
                                     <div class="status">
