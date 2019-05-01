@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/viewports.css">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/main/init.js"></script>
+    <script type="text/javascript">
+        var user;
+        var uid;
+    </script>
+</head>
+
+<body>
+    <h1>Hello <span id="usernameDisplay"></span>!</h1>
+    <p>Current Balance: <span id="balance"></span></p>
+    <nav id="statusNav">
+         <div class="loader"></div>
+    </nav>
+    <div id="viewport" class="container">viewport</div>
+</body>
+</html>
+<script type="text/javascript" src="js/main/nav.js"></script>
+<script src="viewports/controllers/messenger.js"></script>
+<script src="viewports/controllers/childRequest.js"></script>
+<script src="viewports/controllers/masterRequest.js"></script>
+<script src="viewports/controllers/transactionhistory.js"></script>

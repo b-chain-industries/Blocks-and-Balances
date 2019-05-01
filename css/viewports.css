@@ -1,0 +1,111 @@
+/* Global Viewport Styles */
+
+#statusNav{
+    width: 100%;
+    display: flex;
+}
+
+.tab{
+    width: 200px;
+    padding: 20px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.tab:hover{
+    background: grey;
+}
+
+#viewport{
+    width: 100%;
+    min-height: 100vh;
+    border: 5px groove red;
+    margin: 0;
+    padding: 30px;
+}
+
+/* loader Styles */
+.loader {
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* End Global Viewport Stlyes */
+
+/* ------Child Request------- */
+.pending-holder{
+    width: 80%; 
+    margin: 15px 0;
+}
+.table{
+    width: 100%;
+    height: auto;
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+.description{
+    border-left: 2px solid #fff;
+    
+}
+#request-description{
+    resize: none;
+}
+.chart-section{
+    padding: 40px;
+}
+.status{
+    width: 20%;
+    border-left: 2px solid #fff;
+    padding: 40px;
+}
+.border{
+    margin-top: 40px;
+    width: 60%;
+    border-bottom: 2px solid black;
+}
+.pending{
+    border-bottom: 2px solid black;
+}
+.comment-section{
+    background-color: grey;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+}
+#commentBtn:hover{
+    cursor: pointer;
+    color: #fff;
+}
+.displayComment{
+    width: 100%;
+    background:grey;
+    text-align: left;
+    overflow-y: scroll;
+    max-height: 400px;
+    display: none;
+}
+.comment{
+    margin: 10px;
+    border-bottom: 2px solid white;
+}
+#addComment{
+    resize: none;
+    width: 80%;
+}
+#displayPending{
+    width: 100%;
+}
+
+/* ------End of Child Request------- */
