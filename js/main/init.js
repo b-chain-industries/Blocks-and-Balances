@@ -23,9 +23,7 @@ console.log(userParams);
 var userId = uid = parseInt(userParams.id);
 var userToken = userParams.token;
 
-$.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id: userId, token: userParams.token}, function(data){
-    console.log(data);
-    
+$.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id: userId, token: userParams.token}, function(data){    
     data = JSON.parse(data);
     user = data;
     

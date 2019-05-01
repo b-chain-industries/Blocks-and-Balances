@@ -61,7 +61,6 @@ console.log(element.pendingRequest.master_approval);
 console.log(element.pendingRequest.master_requested);
 console.log(user.ID);
 
-
  if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
      template = `<div class="pending-holder">
     <div class="table pending">

@@ -97,33 +97,16 @@ function childApproved(x){
 
 // function for pending requests
 function getPending(){
+    let master1 = "";
+    let master2 = "";
 
-    
-    let params = {
-        relationId : parseInt(user.relation_id),
-        userId : parseInt(user.ID),
-    };
-    console.log(user);
-    //Posting user information from our data base to the browser
-    $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) {
-        //clearing old HTML without refreshing the browsers
-        document.getElementById('displayPending').innerHTML = "";
-    // making the string to objects by using JSON.parse
-    data = JSON.parse(data);
-    // creating a loop to get the amount,description and status of the request
-    data.forEach(element => {
-
+    $.post("http://blocksandbalancesserver.000webhostapp.com/user/getRelations.php", {relationId: user.relation_id}, function(data){
+        data=JSON.parse(data);
         
-        if(master1.username in data){
-            master1 = data.master1.username;
-            $("#master1Display").html(master1);
-        }
-        if(master2.username in data){
-                master1 = data.master1.username;
-                $("#master1Display").html(master1);
-                master2 = data.master2.username;
-                $("#master2Display").html(master2);
-        }
+        master1 = data.master1.username;
+        $("#master1Display").html(master1);
+        master2 = data.master2.username;
+        $("#master2Display").html(master2);
     
         let params = {
             relationId : parseInt(user.relation_id),
