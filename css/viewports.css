@@ -88,10 +88,13 @@
     cursor: pointer;
     color: #fff;
 }
-.display-comment{
+.displayComment{
     width: 100%;
     background:grey;
     text-align: left;
+    overflow-y: scroll;
+    max-height: 400px;
+    display: none;
 }
 .comment{
     margin: 10px;

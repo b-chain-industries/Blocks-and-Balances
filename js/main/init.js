@@ -15,15 +15,25 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 
+var userParams = atob(getUrlParameter('user'));
+userParams = JSON.parse(userParams);
+console.log(userParams);
 
 
-var userId = uid = getUrlParameter('id');
+var userId = uid = parseInt(userParams.id);
+var userToken = userParams.token;
 
-$.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id: userId}, function(data){
+$.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id: userId, token: userParams.token}, function(data){
+    console.log(data);
+    
     data = JSON.parse(data);
     user = data;
+    
+    if (data.token !== userToken){
+        window.location = "index.html";
+        
+    }
 
-    // console.log(data);
     // elements to populate
     var userDisplay = document.getElementById('usernameDisplay');
     var statusNav = document.getElementById('statusNav');
