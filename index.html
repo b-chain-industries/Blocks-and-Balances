@@ -39,14 +39,15 @@
                 <input type="text" id="userReg" placeholder="Username">
                 <input type="password" id="passReg" placeholder="Password">
             </div>
-            
-            <input type="radio" name="status" id="child" value="0" onclick="childClick()"selected="selected"> Child<br>
-            <input type="radio" name="status" id="master" value="1" onclick="masterClick()">Master
-            <input type="text" id="childUsername" placeholder="Child's username"><br>
+            <div class="statusHolder">
+                <input type="radio" name="status" id="child" value="0" onclick="childClick()"selected="selected"> Child<br>
+                <input type="radio" name="status" id="master" value="1" onclick="masterClick()">Master
+                <input type="text" id="childUsername" placeholder="Child's username"><br>
+            </div>
             
             <div class="btnholder">
-                <button type="submit" name="button" ">submit</button>
-                <button type="button">Back</button>Í
+                <button type="submit" name="button" class="loginbtn submitBtn">submit</button>
+                <button type="button" class="backBtn" onclick="goBackBtn()">Back</button>
             </div>
         </form>
     </div>

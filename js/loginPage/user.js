@@ -3,7 +3,6 @@
 //
 
 // getting all elements involved in this process
-var select = document.getElementById('select');
 var login = document.getElementById('login');
 var register = document.getElementById('register');
 
