@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
+@import url('https://fonts.googleapis.com/css?family=El+Messiri');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    width:100%;
+
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d9e3da;
+    background-image: url('../img/background.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+/* container holder */
+.container{
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 50px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: rgba(217, 227, 218,0.7);
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.coName{
+    font-family: 'Vidaloka', serif;
+    font-size: 1.5em;
+    color: #797d1c;
+}
+#register{
+    display: none;
+}
+.loginbtn{
+    padding: 4px;
+    border-radius: 10px;
+    border:none;
+    height: 30px;
+    width:60px;
+    font-family: 'El Messiri', sans-serif;
+    background-color:#4eb5f1;
+    color: #fff;
+    margin-bottom: 9px;
+    transition: all 0.2s ease-in;
+    font-size: 17px;
+}
+.loginbtn:hover{
+    transition: all 0.2s ease-out;
+    background-color: #4095c6;
+    border: 1px solid #fff;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: -20px;
+  
+} 
+.select{
+    display: flex;
+    flex-direction: column;
+}
+.passCheckbox{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.registerbtn{
+    background-color: transparent;
+    border: none;
+    color: #0033cc;
+    font-size: 13px;
+    transition: all 0.2s ease-in;
+    
+}
+.registerbtn:hover{
+    color: #3366ff;
+    transition: all 0.2s ease-out;
+    text-decoration: underline;
+}
+.socialMedia{
+    position: relative;
+    top: 17px;
+}
+.socialMedia i{
+    font-size: 1.5em;
+    
+}
+/* end of login */
+/******************** 
+    Register
+*********************/  
+
+.inputHolder{
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#childUsername{
+    display: none;
+}
+.btnholder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #fff;
+
+}

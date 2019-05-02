@@ -52,4 +52,13 @@ registerForm.submit(function (event){
 
 
 });
+var $master = $('#master');
+var $childUser = $('#childUsername');
 
+function inputDisplay(){
+    if($master.prop('checked') == true){
+        $childUser.style.display = 'block';
+    }else{
+        $childUser.style.display = 'none';
+    }
+}
