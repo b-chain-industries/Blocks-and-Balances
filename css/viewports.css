@@ -1,25 +1,30 @@
 /* *****************************
 test page style ****************/
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+/* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Alegreya');
 /* header */
 header{
-    background-color:  #4f6367;
+    background-color:  #99e1d9;
     height: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #666666;
 }
 .id-holder{
-    color: #fff;
-    padding: 10px;
+    color:#32292f;
+    padding-left: 10px;
+    border-left: 1px solid #fff;
+    position: relative;
+    left: 20px;
 }
 .id-display{
-    font-family: 'Playfair Display', serif;
-    border-bottom: 1px solid #fff;
+    font-family: 'Lora', serif;
+    
 }
 .balance-display{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
 }
 #balance{
     text-decoration: underline;
@@ -30,6 +35,7 @@ header{
     position: relative;
     left: -10px;
     border: 1px solid #fff;
+    padding: 2px;
 }
 /* End of Header */
 
@@ -37,11 +43,18 @@ header{
 
 
 /* Global Viewport Styles */
+/* display view */
+.display-holder{
+    display: flex;
+}
+/* End of display view */
 /* navbar */
 #statusNav{
-    width: 100%;
+    width: 18%;
+    height: 100vh;
     display: flex;
-    background-color: #b8d8d8;
+    flex-direction: column;
+    background-color: #70abaf;
 }
 /* End of Navbar */
 .tab{
@@ -57,11 +70,12 @@ header{
     display: block;
     text-decoration: none;
     transition: all 0.25s linear;     
-    margin: 10px;
+    margin-left: 19px;
+    margin-top: 15px;
     position: relative;
     top: -7px;
-    font-size: 10px;
-  
+    font-size: 14px;
+    font-family: 'Alegreya', serif;
 }
 .tab:hover {
     background: #fe5f55;
@@ -70,17 +84,18 @@ header{
     -webkit-transform: translate(02em, -0.9em);
             transform: translate(0.9em, -0.9em);
     transition: all .25s linear;
-    box-shadow: -2em 2em 0 #89a0a0;
+    box-shadow: -2em 2em 0 #666666;
     z-index: 20;
 }
 .tab:hover:before, .tab:hover:after{
     transition: all .25s linear;
     z-index: 20;
 }
+/* After hover */
 .tab:hover:before {
     background: #0c5a87;
     width: 1em;
-    height: 3.48em;
+    height: 3em;
     top: .45em;
     left: -1.05em;
 }
@@ -92,6 +107,7 @@ header{
     top: -3.52em;
     height: 15em;
 }
+/* End of after hover */
 .tab:before, .tab:after {
     content: '';
     position: absolute;
@@ -99,31 +115,33 @@ header{
     width: .5em;
     height: 2em;
 }
+/* default button */
 .tab:after {
-    height: 14.95em;
+    height: 10.7em;
     background:#031926;
     bottom: -2.25em;
-    top: -3.74em;
-    left: 6.9em;
+    top: -2.2em;
+    left: 4.80em;
     -webkit-transform: rotate(90deg) skew(0, 45deg);
             transform: rotate(90deg) skew(0, 45deg);
 }
 .tab:before {
-    height: 3.5em;
+    height: 2.9em;
     background: #0c5a87;
     top: .23em;
     left: -.56em;
     -webkit-transform: skewY(-45deg);
             transform: skewY(-45deg);
   }
+  /* End of Default button */
   
 
 #viewport{
-    width: 100%;
+    width: 70%;
     min-height: 100vh;
     /* border: 5px groove red; */
     margin: 0;
-    padding: 30px;
+    padding-left: 30px;
 }
 
 /* loader Styles */
