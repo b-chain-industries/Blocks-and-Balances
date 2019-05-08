@@ -59,12 +59,12 @@ function initNav(status){
     if (status == 0) {
         statusNav.innerHTML =
         `<div id="initTab" class="tab" onclick="getViewport('childRequest')">Requests</div>
-        <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
+        <div class="tab" onclick="getViewport('transHist')"><i class="fas fa-chart-bar"></i>Transaction History</div>
          <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     } else {
         statusNav.innerHTML =
         `<div id="initTab" class="tab" onclick="getViewport('masterRequest')">Requests</div>
-        <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
+        <div class="tab" onclick="getViewport('transHist')"><i class="fas fa-chart-bar"></i>Transaction History</div>
          <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     }
 }

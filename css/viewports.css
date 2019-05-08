@@ -50,7 +50,7 @@ header{
 /* End of display view */
 /* navbar */
 #statusNav{
-    width: 18%;
+    width: 14.5%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -65,27 +65,27 @@ header{
     border-bottom: 1px solid #737373;
     color: #fff;
     text-align: center;
-    background: rgb(116,130,143);
+    background: #5570c1;
     position: relative;
     display: block;
     text-decoration: none;
     transition: all 0.25s linear;     
     margin-left: 19px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     position: relative;
-    top: -7px;
+    top: 10px;
     font-size: 14px;
     font-family: 'Alegreya', serif;
 }
 .tab:hover {
-    background: #fe5f55;
+    background: #3366ff;
 
     color: #fffcfb;
     -webkit-transform: translate(02em, -0.9em);
             transform: translate(0.9em, -0.9em);
     transition: all .25s linear;
-    box-shadow: -2em 2em 0 #666666;
-    z-index: 20;
+    box-shadow: -2em 2em 10px  #3c5c5f;
+    /* z-index: 20; */
 }
 .tab:hover:before, .tab:hover:after{
     transition: all .25s linear;
@@ -93,19 +93,19 @@ header{
 }
 /* After hover */
 .tab:hover:before {
-    background: #0c5a87;
+    background: #455fab;
     width: 1em;
     height: 3em;
     top: .45em;
     left: -1.05em;
 }
 .tab:hover:after {
-    background: #031926;
+    background: #283458;
     width: 1em;
     bottom: -2.5em;
-    left: 6.42em;
-    top: -3.52em;
-    height: 15em;
+    left: 4.31em;
+    top: -2em;
+    height: 10.75em;
 }
 /* End of after hover */
 .tab:before, .tab:after {
@@ -118,16 +118,16 @@ header{
 /* default button */
 .tab:after {
     height: 10.7em;
-    background:#031926;
+    background:#354062;
     bottom: -2.25em;
-    top: -2.2em;
+    top: -2.18em;
     left: 4.80em;
     -webkit-transform: rotate(90deg) skew(0, 45deg);
             transform: rotate(90deg) skew(0, 45deg);
 }
 .tab:before {
     height: 2.9em;
-    background: #0c5a87;
+    background: #6476ad;
     top: .23em;
     left: -.56em;
     -webkit-transform: skewY(-45deg);
