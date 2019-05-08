@@ -134,9 +134,9 @@ header{
             transform: skewY(-45deg);
   }
   /* End of Default button */
-  .fas{
+.fas{
       color: orange;
-  }
+}
 
 #viewport{
     width: 70%;
