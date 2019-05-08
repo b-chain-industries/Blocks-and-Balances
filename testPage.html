@@ -10,14 +10,21 @@
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main/init.js"></script>
+    <script>
         var user;
         var uid;
     </script>
 </head>
 
 <body>
-    <h1>Hello <span id="usernameDisplay"></span>!</h1>
-    <p>Current Balance: <span id="balance"></span></p>
+    <header>
+        <div class="id-holder">
+            <h1 class='id-display'>Hello <span id="usernameDisplay"></span></h1>
+            <p class="balance-display">Current Balance: <span id="balance"></span></p>
+        </div>
+        <img src="img/logo.jpg" alt="logo" class="logo">
+    </header>
+   
     <nav id="statusNav">
          <div class="loader"></div>
     </nav>

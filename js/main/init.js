@@ -39,8 +39,11 @@ $.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id:
     var statusNav = document.getElementById('statusNav');
     var balance = document.getElementById('balance');
 
-
-    usernameDisplay.innerHTML = data.username;
+    var username = data.username;
+    userDisplay.innerHTML = username.charAt(0).toUpperCase()+username.slice(1);
+    
+    // var $firstLetter = usernameDisplay.charAt[0].
+    // var firstLetterUppercase = usernameDisplay.charAt(0).toUpperCase();
     balance.innerHTML = data.balance;
 
     // initialize the correct nav
