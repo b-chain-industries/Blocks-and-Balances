@@ -5,35 +5,57 @@ test page style ****************/
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
 /* header */
 header{
-    background-color:  #99e1d9;
+    background-color:  #3c434c;
     height: 110px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #666666;
-}
-.id-holder{
-    color:#32292f;
-    padding-left: 10px;
-    border-left: 1px solid #fff;
-    position: relative;
-    left: 20px;
-}
-.id-display{
-    font-family: 'Lora', serif;
+    position: sticky;
+    top: 0;
+    z-index: 20;
     
 }
-.balance-display{
-    font-family: 'Lora', serif;
+.id-holder{
+    color:honeydew;
+    padding-left: 10px;
+    position: relative;
+    left: 20px;
+    top: -10px;
+    line-height: 8px;
 }
-#balance{
-    text-decoration: underline;
+
+.brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: -20px;
+    top: 7px;
+}
+.coName{
+    font-family: 'Vidaloka', serif;
+    font-size: 1.2em;
+    color: #797d1c;
+}
+.id-display{
+    font-size: 1.8em;
+    border-bottom: 1px solid #fff;  
+}
+#date{
+    font-size: 1em;
+    color: #b3e6ff;
+}
+.font{
+    font-family: 'Lora', serif;
+    letter-spacing: 1px;
 }
 .logo{
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     position: relative;
-    left: -10px;
+
+    top: -5px;
     border: 1px solid #fff;
     padding: 2px;
 }
@@ -45,16 +67,22 @@ header{
 /* Global Viewport Styles */
 /* display view */
 .display-holder{
-    display: flex;
+    width: 100vw;
 }
 /* End of display view */
 /* navbar */
-#statusNav{
+.nav-holder{
+    background-color: #70abaf;
     width: 14.5%;
     height: 100vh;
+    position: fixed;
+    
+}
+#statusNav{
     display: flex;
     flex-direction: column;
-    background-color: #70abaf;
+   position: relative;
+   top: 50px;
 }
 /* End of Navbar */
 .tab{
@@ -137,14 +165,16 @@ header{
 .fas{
       color: orange;
 }
+/* viewport */
 
 #viewport{
-    width: 100%;
-    min-height: 100vh;
-    /* border: 5px groove red; */
+    width: 85.5%;
+    height: auto;
     margin: 0;
-    padding-left: 30px;
-    background-color: honeydew;
+    background-color: #b19c84;
+    position: relative;
+    left: 14.5%;
+    padding: 20px;
 }
 
 /* loader Styles */
@@ -165,33 +195,57 @@ header{
 /* End Global Viewport Stlyes */
 
 /* ------Child Request------- */
+.title-display{
+    font-family: 'Lora', serif;
+    font-size: 1.5em;
+    color: rgb(251, 251, 251);
+}
 .pending-holder{
     width: 100%; 
     margin: 15px 0;
 }
 .table{
     width: 100%;
-    height: auto;
-    background-color: grey;
+    height: 70px;
+    background-color: #345c7e;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0px;
+    border-radius: 5px;
+    box-shadow: -10px 5px 5px grey;
 }
 .description{
-    border-left: 2px solid #fff;
+    border-left: 1px solid #fff;
     
 }
-#request-description{
+#requestDescription{
     resize: none;
+    height: 45px;
 }
 .chart-section{
-    padding: 40px;
+    padding-left: 40px;
+}
+.chart-section span{
+    color: rgb(251, 251, 251);
 }
 .status{
     width: 20%;
     border-left: 2px solid #fff;
-    padding: 40px;
+    padding-left: 40px;
+    position: relative;
+    left: -20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.status span{
+    color: rgb(251, 251, 251);
+}
+.status-submit{
+    border-radius: 500px;
+    font-size: .8em;
+    height: 30px;
 }
 .border{
     margin-top: 40px;

@@ -22,15 +22,23 @@
 <body>
     <header>
         <div class="id-holder">
-            <h1 class='id-display'>Hello <span id="usernameDisplay"></span></h1>
-            <p class="balance-display">Current Balance: <span id="balance"></span></p>
+            <h1 class='id-display font'>Hello <span id="usernameDisplay"></span></h1>
+            <h6 class="balance-display font">Current Balance: <span id="balance"></span></h6>
+            <span id="date" class="font"></span>
         </div>
-        <img src="img/logo.jpg" alt="logo" class="logo">
+        <div class="brand">
+             <img src="img/logo.jpg" alt="logo" class="logo"> 
+             <span class="coName"alt="Company's name">Blocks & Balances</span>
+        </div>
+       
     </header>
     <div class="display-holder">
-        <nav id="statusNav">
-            <div class="loader"></div>
-        </nav>
+        <div class="nav-holder">
+            <nav id="statusNav">
+                    <div class="loader"></div>
+            </nav>
+        </div>
+        
             
         <div id="viewport" class="container">viewport</div>
     </div>

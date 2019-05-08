@@ -162,8 +162,9 @@ function getPending(){
                 approvedHtml += `<button onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
             }
             //template is for placing Amount,description and status of user
-            var template = `<div class="pending-holder">
-            <div class="table pending">
+            var template =
+             `<div class="pending-holder">
+                <div class="table pending">
                 <div class="amount chart-section">
                     <span>Amount: `+ element.pendingRequest.amount +`</span>
                 </div>
