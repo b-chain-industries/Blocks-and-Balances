@@ -139,11 +139,12 @@ header{
 }
 
 #viewport{
-    width: 70%;
+    width: 100%;
     min-height: 100vh;
     /* border: 5px groove red; */
     margin: 0;
     padding-left: 30px;
+    background-color: honeydew;
 }
 
 /* loader Styles */
@@ -165,7 +166,7 @@ header{
 
 /* ------Child Request------- */
 .pending-holder{
-    width: 80%; 
+    width: 100%; 
     margin: 15px 0;
 }
 .table{
