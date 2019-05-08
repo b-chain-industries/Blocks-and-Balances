@@ -3,6 +3,7 @@ test page style ****************/
 /* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
 @import url('https://fonts.googleapis.com/css?family=Lora');
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
 /* header */
 header{
     background-color:  #3c434c;
@@ -81,8 +82,9 @@ header{
 #statusNav{
     display: flex;
     flex-direction: column;
-   position: relative;
-   top: 50px;
+    position: fixed;
+    padding-top: 60px;
+    
 }
 /* End of Navbar */
 .tab{
@@ -168,13 +170,13 @@ header{
 /* viewport */
 
 #viewport{
-    width: 85.5%;
+    width: 84.8%;
     height: auto;
     margin: 0;
     background-color: #b19c84;
     position: relative;
-    left: 14.5%;
-    padding: 20px;
+    left: 14.3%;
+    /* padding: 20px; */
 }
 
 /* loader Styles */
@@ -196,7 +198,7 @@ header{
 
 /* ------Child Request------- */
 .title-display{
-    font-family: 'Lora', serif;
+    font-family: 'Source Serif Pro', serif;
     font-size: 1.5em;
     color: rgb(251, 251, 251);
 }
@@ -207,17 +209,35 @@ header{
 .table{
     width: 100%;
     height: 70px;
-    background-color: #345c7e;
+    background-color: rgba(193, 139, 155, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0px;
     border-radius: 5px;
     box-shadow: -10px 5px 5px grey;
+   border-bottom: 1px solid #fff;
+}
+
+.tablee{
+    background-color:#3c434c;
+    display: flex;
+    border-radius: 5px;
+    width:100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    box-shadow: -10px 5px 5px grey;
 }
 .description{
     border-left: 1px solid #fff;
     
+}
+.descriptionn{
+    border-left: 1px solid #fff;
+    position: relative;
+    left: -17%;
 }
 #requestDescription{
     resize: none;
@@ -231,8 +251,8 @@ header{
 }
 .status{
     width: 20%;
-    border-left: 2px solid #fff;
-    padding-left: 40px;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
     position: relative;
     left: -20px;
     display: flex;
@@ -248,23 +268,36 @@ header{
     height: 30px;
     transition: all 0.3s ease-out;
 }
+.status-holder{
+    font-family: 'Source Serif Pro', serif;
+}
 .status-submit:hover{
     background-color:  #4095c6;
     transition:  all 0.3s ease-in;
+    color: #fff;
+}
+#statusDisplay{
+    font-family: 'Source Serif Pro', serif;
 }
 .border{
     margin-top: 40px;
+    margin-left: 20%;
     width: 60%;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid #a7f9ff;
+    display: none;
 }
-.pending{
-    border-bottom: 2px solid black;
+.borderShow{
+    display: block;
 }
 .comment-section{
     background-color: grey;
-    padding: 20px 0;
+    padding: 20px 0; 
     width: 100%;
-    text-align: center;
+    border-radius: 5px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    z-index: 20;
+    /* display: flex;
+    justify-content: space-between; */
 }
 #commentBtn:hover{
     cursor: pointer;
@@ -280,7 +313,8 @@ header{
 }
 .comment{
     margin: 10px;
-    border-bottom: 2px solid white;
+    border-bottom: 1px solid white;
+    color: #fff;
 }
 #addComment{
     resize: none;
