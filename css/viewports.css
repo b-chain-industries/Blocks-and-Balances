@@ -63,9 +63,9 @@ header{
     cursor: pointer;
     border-left: 1px solid #a7a7a7;
     border-bottom: 1px solid #737373;
-    color: #fff;
+    color: #bfbfbf;
     text-align: center;
-    background: #5570c1;
+    background: #000;
     position: relative;
     display: block;
     text-decoration: none;
@@ -78,7 +78,7 @@ header{
     font-family: 'Alegreya', serif;
 }
 .tab:hover {
-    background: #3366ff;
+    background: #737373;
 
     color: #fffcfb;
     -webkit-transform: translate(02em, -0.9em);
@@ -93,14 +93,14 @@ header{
 }
 /* After hover */
 .tab:hover:before {
-    background: #455fab;
+    background: #4d4d4d;
     width: 1em;
     height: 3em;
     top: .45em;
     left: -1.05em;
 }
 .tab:hover:after {
-    background: #283458;
+    background: #262626;
     width: 1em;
     bottom: -2.5em;
     left: 4.31em;
@@ -118,7 +118,7 @@ header{
 /* default button */
 .tab:after {
     height: 10.7em;
-    background:#354062;
+    background:#262626;
     bottom: -2.25em;
     top: -2.18em;
     left: 4.80em;
@@ -127,14 +127,16 @@ header{
 }
 .tab:before {
     height: 2.9em;
-    background: #6476ad;
+    background: #4d4d4d;
     top: .23em;
     left: -.56em;
     -webkit-transform: skewY(-45deg);
             transform: skewY(-45deg);
   }
   /* End of Default button */
-  
+  .fas{
+      color: orange;
+  }
 
 #viewport{
     width: 70%;
