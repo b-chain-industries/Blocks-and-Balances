@@ -246,6 +246,11 @@ header{
     border-radius: 500px;
     font-size: .8em;
     height: 30px;
+    transition: all 0.3s ease-out;
+}
+.status-submit:hover{
+    background-color:  #4095c6;
+    transition:  all 0.3s ease-in;
 }
 .border{
     margin-top: 40px;

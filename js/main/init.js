@@ -70,22 +70,22 @@ function initNav(status){
         </div>
          <div class="tab" onclick="getViewport('messenger')"><i class="fas fa-comment"></i>Messenger</div>
          <div class="tab"><i class="fab fa-vimeo-v fas"></i>Overview</div>
-        <div class="tab" ><i class="fas fa-chart-bar"></i>News</div>
-         <div class="tab" "><i class="fas fa-comment"></i>Gain Value</div>
-         <div class="tab"><i class="fas fa-exchange-alt"></i>Events</div>
-        <div class="tab" ><i class="fas fa-chart-bar"></i>Contact Us</div>
-         <div class="tab" "><i class="fas fa-comment"></i>About</div>`;
+        <div class="tab" ><i class="far fa-newspaper fas"></i>News</div>
+         <div class="tab" "><i class="fas fa-chart-line"></i>Gain Value</div>
+         <div class="tab"><i class="fas fa-calendar-week"></i>Events</div>
+        <div class="tab" ><i class="fas fa-address-book"></i>Contact Us</div>
+         <div class="tab" "><i class="fas fa-info"></i>About</div>`;
     } else {
         statusNav.innerHTML =
         `<div id="initTab" class="tab" onclick="getViewport('masterRequest')"><i class="fas fa-exchange-alt"></i>Requests</div>
         <div class="tab" onclick="getViewport('transHist')"><i class="fas fa-chart-bar"></i>Transaction History</div>
          <div class="tab" onclick="getViewport('messenger')"><i class="fas fa-comment"></i>Messenger</div>
          <div  class="tab" ><i class="fab fa-vimeo-v fas"></i>Overview</div>
-        <div class="tab"><i class="fas fa-chart-bar"></i>News</div>
-         <div class="tab" ><i class="fas fa-comment"></i>Gain Value</div>
-         <div class="tab"><i class="fas fa-exchange-alt"></i>Events</div>
-        <div class="tab" ><i class="fas fa-chart-bar"></i>Contact Us</div>
-         <div class="tab" "><i class="fas fa-comment"></i>About</div>`;
+        <div class="tab"><i class="far fa-newspaper fas"></i>News</div>
+         <div class="tab" ><i class="fas fa-chart-line"></i>Gain Value</div>
+         <div class="tab"><i class="fas fa-calendar-week"></i>Events</div>
+        <div class="tab" ><i class="fas fa-address-book"></i>Contact Us</div>
+         <div class="tab" "><i class="fas fa-info"></i>About</div>`;
 
     }
 }
