@@ -46,13 +46,6 @@ loginForm.submit(function (event){
         });
     }
 });
-<<<<<<< HEAD
-
-
-// $.get("http://jsonip.com", function(data){
-//     console.log(data);
-// });
-=======
 //back button 
 // var $backBtn = $('#backbtn');
 // $backBtn.click(function(){
@@ -75,4 +68,3 @@ $passCheck.click(function(){
     }
 });
 
->>>>>>> bcbc366bad87af832ac8a61af3efaa2b30a81285
