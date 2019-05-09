@@ -167,6 +167,12 @@ header{
 .fas{
       color: rgb(103, 67, 0);
 }
+/* .fas:hover{
+    color:rgb(208, 135, 0);
+} */
+.tab , .fas:hover{
+    color:rgb(208,135,0)
+}
 /* viewport */
 
 #viewport{
