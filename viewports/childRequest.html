@@ -1,5 +1,5 @@
 <div id="content">
-    <h2>Request</h2>
+    <h2 class="title-display ">Request</h2>
     <div class="pending-holder">
         <div class="table">
             <div class="amount chart-section">
@@ -19,17 +19,18 @@
                 <textarea  id="requestDescription" cols="60" rows="3" placeholder="Description"></textarea>
             </div>
             <div class="status">
-                <input name="masterSelect" type="radio" value="1"/>
-                <span id="master1Display">Master 1</span><br/>
-                <input name="masterSelect" type="radio" value="2"/>
-                <span id="master2Display">Master 2</span>
-                <button onclick="sendRequest()">Submit</button>
-               
+                <div class="status-holder">
+                    <input name="masterSelect" type="radio" value="1"/>
+                    <span id="master1Display">Master 1</span><br/>
+                    <input name="masterSelect" type="radio" value="2"/>
+                    <span id="master2Display">Master 2</span>
+                </div>
+                <button onclick="sendRequest()" class="status-submit">Submit</button>
             </div>
         </div>
     </div>
-    <div class="border"></div>
-    <h2>Pending Resquest</h2>
+    <div class="border borderShow" id="border-show"></div>
+    <h2 class="title-display">Pending Resquest</h2>
     <div id="displayPending"></div>
     <script type="text/javascript">
         var requestId;
