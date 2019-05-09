@@ -91,9 +91,9 @@ header{
     width: 150px;
     padding: 10px;
     cursor: pointer;
-    border-left: 1px solid #a7a7a7;
-    border-bottom: 1px solid #737373;
-    color: #bfbfbf;
+    border-left: 1px solid #7f7f7f;
+    border-bottom: 1px solid #3c3c3c;
+    color: #7b7b7b;
     text-align: center;
     background: #000;
     position: relative;
@@ -165,7 +165,7 @@ header{
   }
   /* End of Default button */
 .fas{
-      color: orange;
+      color: rgb(103, 67, 0);
 }
 /* viewport */
 
