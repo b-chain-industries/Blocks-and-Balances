@@ -157,7 +157,7 @@ header{
 }
 .tab:before {
     height: 2.9em;
-    background: #4d4d4d;
+    background: #282828;
     top: .23em;
     left: -.56em;
     -webkit-transform: skewY(-45deg);
@@ -165,14 +165,12 @@ header{
   }
   /* End of Default button */
 .fas{
-      color: rgb(103, 67, 0);
+      color: rgb(60, 60, 60);
 }
-/* .fas:hover{
-    color:rgb(208, 135, 0);
-} */
-.tab , .fas:hover{
-    color:rgb(208,135,0)
+.fas:hover{
+    color: rgb(169, 110, 0);
 }
+
 /* viewport */
 
 #viewport{
