@@ -1,5 +1,7 @@
 var loginForm = $("#login");
 loginForm.submit(function (event){
+    console.log("fired");
+    
     event.preventDefault();
 
     var user = document.getElementById('user').value;
@@ -16,20 +18,53 @@ loginForm.submit(function (event){
             user: user,
             pass: pass
         }
+        
+        
 
         $.post("http://blocksandbalancesserver.000webhostapp.com/user/login.php", params, function(data){
             data = JSON.parse(data);
+            console.log(data);
 
             if (!data.login) {
                 err.innerHTML = data.error;
             }
             if (data.login) {
                 err.innerHTML = "Logging in...";
-                window.location = "testPage.html?id="+data.userId;
-                // console.log(data);
+                var base = {
+                    id: data.userId,
+                    token: data.token
+                }
+                var base = JSON.stringify(base);
+                base = btoa(base);                
+                
+                window.location = "testPage.html?user="+base;
+                
+                
                 
             }
 
         });
     }
 });
+//back button 
+// var $backBtn = $('#backbtn');
+// $backBtn.click(function(){
+//     console.log('click')
+//     window.location = "index.html";
+// });
+// password visibility
+var $passCheck = $('#passCheck');
+var $passInput = $('#pass');
+
+$passCheck.prop('checked',false);
+$passCheck.click(function(){
+    
+    if($passInput.attr('type') == 'password'){
+        console.log('if')
+        $passInput.attr('type','text');
+    }else{
+        console.log('else')
+        $passInput.attr('type','password');
+    }
+});
+

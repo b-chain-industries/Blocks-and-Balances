@@ -15,22 +15,37 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 
+var userParams = atob(getUrlParameter('user'));
+userParams = JSON.parse(userParams);
+console.log(userParams);
 
 
-var userId = uid = getUrlParameter('id');
+var userId = uid = parseInt(userParams.id);
+var userToken = userParams.token;
 
-$.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id: userId}, function(data){
+$.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id: userId, token: userParams.token}, function(data){    
     data = JSON.parse(data);
     user = data;
+    
+    if (data.token !== userToken){
+        window.location = "index.html";
+        
+    }
 
-    // console.log(data);
     // elements to populate
     var userDisplay = document.getElementById('usernameDisplay');
     var statusNav = document.getElementById('statusNav');
     var balance = document.getElementById('balance');
+    var date = document.getElementById('date');
 
-
-    usernameDisplay.innerHTML = data.username;
+    //Setting the date
+    var displayDate = new Date();
+    date.innerHTML = new Intl.DateTimeFormat('en-US').format(displayDate);
+    var username = data.username;
+    userDisplay.innerHTML = username.charAt(0).toUpperCase()+username.slice(1);
+    
+    // var $firstLetter = usernameDisplay.charAt[0].
+    // var firstLetterUppercase = usernameDisplay.charAt(0).toUpperCase();
     balance.innerHTML = data.balance;
 
     // initialize the correct nav
@@ -45,13 +60,40 @@ $.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id:
 function initNav(status){
     if (status == 0) {
         statusNav.innerHTML =
-        `<div id="initTab" class="tab" onclick="getViewport('childRequest')">Requests</div>
-        <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
-         <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
+        `<div id="initTab" class="tab" onclick="getViewport('childRequest')">
+            <i class="fas fa-exchange-alt"></i>Requests
+        </div>
+        <div class="tab" onclick="getViewport('transHist')">
+            <i class="fas fa-chart-bar"></i>Transaction History
+        </div>
+         <div class="tab" onclick="getViewport('messenger')"><i class="fas fa-comment"></i>Messenger</div>
+         <div class="tab"><i class="fab fa-vimeo-v fas"></i>Overview</div>
+        <div class="tab" ><i class="far fa-newspaper fas"></i>News</div>
+         <div class="tab" "><i class="fas fa-chart-line"></i>Gain Value</div>
+         <div class="tab"><i class="fas fa-calendar-week"></i>Events</div>
+        <div class="tab" ><i class="fas fa-address-book"></i>Contact Us</div>
+         <div class="tab" "><i class="fas fa-info"></i>About</div>
+         <div class="socialNav">
+            <a href=""><i class="fab fa-facebook-square"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+         </div>`;
     } else {
         statusNav.innerHTML =
-        `<div id="initTab" class="tab" onclick="getViewport('master-request')">Requests</div>
-        <div class="tab" onclick="getViewport('transHist')">Transaction History</div>
-         <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
+        `<div id="initTab" class="tab" onclick="getViewport('masterRequest')><i class="fas fa-exchange-alt"></i>Requests</div>
+        <div class="tab" onclick="getViewport('transHist')"><i class="fas fa-chart-bar"></i>Transaction History</div>
+         <div class="tab" onclick="getViewport('messenger')"><i class="fas fa-comment"></i>Messenger</div>
+         <div  class="tab" ><i class="fab fa-vimeo-v fas"></i>Overview</div>
+        <div class="tab"><i class="far fa-newspaper fas"></i>News</div>
+         <div class="tab" ><i class="fas fa-chart-line"></i>Gain Value</div>
+         <div class="tab"><i class="fas fa-calendar-week"></i>Events</div>
+        <div class="tab" ><i class="fas fa-address-book"></i>Contact Us</div>
+         <div class="tab" "><i class="fas fa-info"></i>About</div>
+         <div class="socialNav">
+            <a href=""><i class="fab fa-facebook-square"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+        </div>`;
+
     }
 }

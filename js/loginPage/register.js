@@ -38,10 +38,44 @@ registerForm.submit(function (event){
             }
             if (data.register) {
                 err.innerHTML = "Registering...";
-                window.location = "testPage.html?id="+data.userId;
+                var base = {
+                    id: data.userId,
+                    token: data.token
+                }
+                var base = JSON.stringify(base);
+                base = btoa(base);                
+                
+                window.location = "testPage.html?user="+base;
             }
         });
     }
 
 
 });
+
+//child input prop selecter
+var $master = $('#master').prop();
+var $childUser = $('#childUsername').prop();
+var $child = $('#child');
+
+if($master.prop('checked',true)){
+    $childUser.prop('disabled', true);
+              
+}else {
+    $childUser.prop('disabled', false);
+}
+
+//backbutton function
+
+function goBackBtn(){
+    console.log('click')
+    window.location.replace('index.html');
+}
+
+// if($master.prop('checked') == true){
+//     $childUser.css('display','block');
+// }else  if($child.prop('checked') == true){
+//     $childUser.css('display','none');
+// }else{
+//     $childUser.css('disabled',true);
+// }

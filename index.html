@@ -4,69 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blocks and Balances</title>
 
-    <style media="screen">
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        body{
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container{
-            border: 1px solid black;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-        button{
-            padding: 7px;
-        }
-        #login{
-            display: none;
-        }
-        #register{
-            display: none;
-        }
-        
-        
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Blocks and Balances</title>
 
     <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>
-
+    
     <div class="container">
-        <div id="select">
-            <button id="loginButton" type="button" onclick="displayLogin()">login</button>
-            <button id="registerButton" type="button" onclick="displayRegister()">register</button>
-        </div>
-        <form id="login">
+          <img  class="logo"src="img/logo.jpg" alt="logo">
+          <span class="coName"alt="Company's name">Blocks & Balances</span>
+        <form id="login" class="login">
             <p id="logError"></p>
-            <p>Username:</p>
-            <input type="text" id="user">
-            <p>Password:</p>
-            <input type="text" id="pass"><br><br>
-            <button type="submit" name="button">submit</button>
+            <!-- <p>Username:</p> -->
+            <input type="text" id="user" placeholder="Username" alt="username">
+            <!-- <p>Password:</p> -->
+            <input type="password" id="pass" placeholder="Password" alt="password"><br><br>
+            <div class="passCheckbox">
+                <input type="checkbox" id="passCheck"> Show Password<br>
+            </div>
+            <button type="submit" class="loginbtn">login </button>
+            <button type="button"class="registerbtn" onclick="displayRegister()">Don't Have An Account</button>
+            <div class="socialMedia">
+                <a href=""><i class="fab fa-facebook-square"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
         </form>
-        <form id="register">
-            <p id="regError"></p>
-            <p>Username:</p>
-            <input type="text" id="userReg">
-            <p>Password:</p>
-            <input type="text" id="passReg">
-            <p>Status</p>
-            <p>Child</p>
-            <input type="radio" name="status" id="child" value="0" onclick="childClick()"selected="selected"><br>
-            <p>Master</p>
-            <input type="radio" name="status" id="master" value="1" onclick="masterClick()">
-            <input type="text" id="childUsername" placeholder="Child's username"><br><br>
-            <button type="submit" name="button">submit</button>
+        <form id="register" class="register">
+            <div class="inputHolder">
+                <p id="regError"></p>
+                <input type="text" id="userReg" placeholder="Username">
+                <input type="password" id="passReg" placeholder="Password">
+            </div>
+            <div class="statusHolder">
+                <input type="radio" name="status" id="child" value="0" onclick="childClick()"selected="selected"> Child<br>
+                <input type="radio" name="status" id="master" value="1" onclick="masterClick()">Master
+                <input type="text" id="childUsername" placeholder="Child's username"><br>
+            </div>
+            
+            <div class="btnholder">
+                <button type="submit" name="button" class="loginbtn submitBtn">submit</button>
+                <button type="button" class="backBtn" onclick="goBackBtn()">Back</button>
+            </div>
         </form>
     </div>
 

@@ -4,72 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/viewports.css">
     <title>Document</title>
 
-    <style media="screen">
-        #statusNav{
-            width: 100%;
-            display: flex;
-        }
-        .tab{
-            width: 200px;
-            padding: 20px;
-            cursor: pointer;
-            border: 1px solid black;
-        }
-        .tab:hover{
-            background: grey;
-        }
-        #viewport{
-            width: 100%;
-            min-height: 100vh;
-            border: 5px groove red;
-            margin: 0;
-            padding: 30px;
-        }
-
-
-        /* loader css */
-        .loader {
-          border: 10px solid #f3f3f3; /* Light grey */
-          border-top: 10px solid #3498db; /* Blue */
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        
-    </style>
-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main/init.js"></script>
-
-    <script type="text/javascript">
-        // var testObj = { id: "1", username: "dylan", status: "0", balance: "0" };
+    <script>
         var user;
         var uid;
-        
     </script>
-    
 </head>
+
 <body>
-    <h1>Hello <span id="usernameDisplay"></span>!</h1>
-    <p>Current Balance: <span id="balance"></span></p>
-
-    <nav id="statusNav">
-         <div class="loader"></div>
-    </nav>
-
-    <div id="viewport">viewport</div>
-
+    <header>
+        <div class="id-holder">
+            <h1 class='id-display font'>Hello <span id="usernameDisplay"></span></h1>
+            <h6 class="balance-display font">Current Balance: <span id="balance"></span></h6>
+            <span id="date" class="font"></span>
+        </div>
+        <div class="brand">
+             <img src="img/logo.jpg" alt="logo" class="logo"> 
+             <span class="coName"alt="Company's name">Blocks & Balances</span>
+        </div>
+       
+    </header>
+    <div class="display-holder">
+        <div class="nav-holder">
+            <nav id="statusNav">
+                    <div class="loader"></div>
+            </nav>
+        </div>
+        
+            
+        <div id="viewport" class="container">viewport</div>
+    </div>
     
-
 </body>
 </html>
 <script type="text/javascript" src="js/main/nav.js"></script>

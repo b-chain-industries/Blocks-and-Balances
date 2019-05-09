@@ -3,18 +3,15 @@
 //
 
 // getting all elements involved in this process
-var select = document.getElementById('select');
 var login = document.getElementById('login');
 var register = document.getElementById('register');
 
 // onClick functions to display the desired section
-function displayLogin(){
-    select.style.display = "none";
-    login.style.display = "block";
-}
+
 function displayRegister(){
-    select.style.display = "none";
-    register.style.display = "block";
+    login.style.display = 'none';
+    register.style.display = "block";    // select.style.display = "none";
+    // register.style.display = "block";
 }
 
 
