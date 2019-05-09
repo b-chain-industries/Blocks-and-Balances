@@ -1,6 +1,6 @@
 var loginForm = $("#login");
 loginForm.submit(function (event){
-    // console.log("fired");
+    console.log("fired");
     
     event.preventDefault();
 
@@ -46,8 +46,33 @@ loginForm.submit(function (event){
         });
     }
 });
+<<<<<<< HEAD
 
 
 // $.get("http://jsonip.com", function(data){
 //     console.log(data);
 // });
+=======
+//back button 
+// var $backBtn = $('#backbtn');
+// $backBtn.click(function(){
+//     console.log('click')
+//     window.location = "index.html";
+// });
+// password visibility
+var $passCheck = $('#passCheck');
+var $passInput = $('#pass');
+
+$passCheck.prop('checked',false);
+$passCheck.click(function(){
+    
+    if($passInput.attr('type') == 'password'){
+        console.log('if')
+        $passInput.attr('type','text');
+    }else{
+        console.log('else')
+        $passInput.attr('type','password');
+    }
+});
+
+>>>>>>> bcbc366bad87af832ac8a61af3efaa2b30a81285
