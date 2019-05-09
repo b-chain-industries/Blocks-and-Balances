@@ -33,7 +33,9 @@ function sendRequest(){
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addTransaction.php', params, function (data){
 
         getPending();
-        
+        $('#requestDescription').val('');
+        $(radioSelect).prop('checked',false);
+        $('#amountSelect').prop('selectedIndex',0)
     })
     
 }
@@ -57,7 +59,7 @@ function request(x){
         $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
             
             getPending();
-            
+        
         });
     }
     
@@ -67,34 +69,41 @@ function request(x){
 function showComments(x){
     
     //targetting the elements with the argument
-   var displayComment = $('#commentDisplay'+x);
+//    var displayComment = $('#commentDisplay'+x);
+    var $commentHolder = $('#commentHolder'+x);
    
    // getting comment section to toggle
-//    var $addCommentBtn = $('.addComment');
+   var $addCommentBtn = $('#addComment'+x);
     //getting the parameters of the array
    var params = {
         requestId:x,
         username:user.username,
     }
 
-    
+    if($commentHolder.css('display') == 'none'){
+        $commentHolder.slideToggle();
+        $commentHolder.css('display','flex');
 
-    //if display is none 
-   if(displayComment.css("display") == "none"){
-    //show the the elements
-       displayComment.slideToggle();
-      //otherwise hide the elements
+    }else{
+        $commentHolder.hide();
+    }
 
-   }else{
-       displayComment.hide();
-   }
+//     //if display is none 
+//    if(displayComment.css("display") == "none"){
+//     //show the the elements
+//        displayComment.slideToggle();
+//       //otherwise hide the elements
 
-
-//    if($addCommentBtn.css('display') == "none"){
-//          $addCommentBtn.slideToggle();
 //    }else{
-//         $addCommentBtn.hide();
+//        displayComment.hide();
 //    }
+
+
+   if($addCommentBtn.css('display') == "none"){
+         $addCommentBtn.slideToggle();
+   }else{
+        $addCommentBtn.hide();
+   }
    
 }
 
@@ -200,13 +209,17 @@ function getPending(){
                 </div>
             </div>
             <div class="comment-section">
-                <div class="commentHolder>
+                <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
                     <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                         `+commentSection+`
                     </div>
-                    <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                    <div class="txt-holder">
+                        <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                        <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                    </div>
+                    
                 </div>
-                <button onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                
                 <button onclick='showComments(`+element.pendingRequest.request_id+`)'>comment</button>
             </div>
         </div>`

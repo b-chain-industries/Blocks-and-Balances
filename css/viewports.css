@@ -7,7 +7,7 @@ test page style ****************/
 /* header */
 header{
     background-color:  #3c434c;
-    height: 110px;
+    height: 130px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,23 +68,27 @@ header{
 /* Global Viewport Styles */
 /* display view */
 .display-holder{
-    width: 100vw;
+    width: 100%;
+    display: flex;
 }
 /* End of display view */
 /* navbar */
 .nav-holder{
-    background-color: #70abaf;
-    width: 14.5%;
-    height: 100vh;
-    position: fixed;
     
+    width: 14.5%;
+    height: 100%;
+    position: relative;
+   
 }
 #statusNav{
+    background-color: #70abaf;
     display: flex;
     flex-direction: column;
     position: fixed;
     padding-top: 60px;
-    
+    height: 100vh;
+    width:14.5%;
+    border-right: 2px solid #fff;
 }
 /* End of Navbar */
 .tab{
@@ -167,19 +171,19 @@ header{
 .fas{
       color: rgb(60, 60, 60);
 }
-.fas:hover{
-    color: rgb(169, 110, 0);
+.tab:hover .fas{
+    color: rgb(227, 150, 6);
 }
 
 /* viewport */
 
 #viewport{
-    width: 84.8%;
-    height: auto;
+    width: 85.5%;
+    min-height: 545px;
     margin: 0;
     background-color: #b19c84;
-    position: relative;
     left: 14.3%;
+    padding: 0px 20px 0px 20px;
     /* padding: 20px; */
 }
 
@@ -307,25 +311,55 @@ header{
     cursor: pointer;
     color: #fff;
 }
+.submitComment{
+    padding: 4px;
+    border-radius: 10px;
+    border:none;
+    height: 30px;
+    width:60px;
+    font-family: 'El Messiri', sans-serif;
+    background-color:#4eb5f1;
+    color: #fff;
+    margin-bottom: 9px;
+    transition: all 0.2s ease-in;
+    font-size: 12px;
+    position: relative;
+    left: 40%;
+}
+.submitComment:hover{
+    transition: all 0.2s ease-out;
+    background-color: #4095c6;
+    border: 1px solid #fff;
+}
 .displayComment{
-    width: 100%;
+    width: 65%;
     background:grey;
     text-align: left;
-    overflow-y: scroll;
-    max-height: 400px;
-    display: none;
+    overflow-y: auto;
+    max-height: 300px;
 }
 
 .comment{
     margin: 10px;
     border-bottom: 1px solid white;
     color: #fff;
-    width: 70%;
+    width: 95%;
 }
+.txt-holder{
+    width: 30%;
+}
+.comment-holder{
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+}
+
 .addComment{
     resize: none;
-    width: 30%;
+    width: 95%;
+    height: 140px;
     display: none;
+    
 }
 #displayPending{
     width: 100%;
