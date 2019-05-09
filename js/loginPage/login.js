@@ -46,3 +46,8 @@ loginForm.submit(function (event){
         });
     }
 });
+
+
+// $.get("http://jsonip.com", function(data){
+//     console.log(data);
+// });

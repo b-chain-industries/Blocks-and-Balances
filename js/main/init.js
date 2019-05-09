@@ -63,3 +63,14 @@ function initNav(status){
          <div class="tab" onclick="getViewport('messenger')">Messenger</div>`;
     }
 }
+
+function logout(){
+    $.post('http://blocksandbalancesserver.000webhostapp.com/user/logout.php', {id:user.ID}, function (data){
+        console.log(data);
+        data = JSON.stringify(data);
+
+        if(data.status){
+            window.location = "index.html";
+        }
+    });
+}
