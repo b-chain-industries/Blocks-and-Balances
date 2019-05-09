@@ -68,8 +68,10 @@ function showComments(x){
     
     //targetting the elements with the argument
    var displayComment = $('#commentDisplay'+x);
-   //getting the parameters of the array
-
+   
+   // getting comment section to toggle
+//    var $addCommentBtn = $('.addComment');
+    //getting the parameters of the array
    var params = {
         requestId:x,
         username:user.username,
@@ -87,6 +89,12 @@ function showComments(x){
        displayComment.hide();
    }
 
+
+//    if($addCommentBtn.css('display') == "none"){
+//          $addCommentBtn.slideToggle();
+//    }else{
+//         $addCommentBtn.hide();
+//    }
    
 }
 
@@ -192,10 +200,12 @@ function getPending(){
                 </div>
             </div>
             <div class="comment-section">
-                <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
-                `+commentSection+`
+                <div class="commentHolder>
+                    <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                        `+commentSection+`
+                    </div>
+                    <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
                 </div>
-                <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
                 <button onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
                 <button onclick='showComments(`+element.pendingRequest.request_id+`)'>comment</button>
             </div>

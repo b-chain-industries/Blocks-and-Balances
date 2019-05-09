@@ -315,14 +315,17 @@ header{
     max-height: 400px;
     display: none;
 }
+
 .comment{
     margin: 10px;
     border-bottom: 1px solid white;
     color: #fff;
+    width: 70%;
 }
-#addComment{
+.addComment{
     resize: none;
-    width: 80%;
+    width: 30%;
+    display: none;
 }
 #displayPending{
     width: 100%;
