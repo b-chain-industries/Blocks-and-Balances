@@ -1,3 +1,4 @@
+setInterval(getMessages(), 500)
 function getMessages(){
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id},
      function(data){
@@ -31,13 +32,13 @@ function getMessages(){
 }
 
 
-    function postMessages(){
+function postMessages(){
     let params = {relationId: user.relation_id, userId: user.ID, username: user.username, message: document.getElementById("chat_input").value}
-    $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params,
-    function(messageResponse){ 
-        getMessages()
+
+    function clearTexArea(){
+        document.getElementById('chat_input').value='';
     }
-    
-    
-    )
+
+    $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params,
+    function(messageResponse){getMessages()})
 }
