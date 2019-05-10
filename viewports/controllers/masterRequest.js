@@ -71,6 +71,8 @@ console.log(user.ID);
         <div class="description chart-section">
             <span>` +element.pendingRequest.description+ `</span>
         </div>
+        <div id="status">
+        </div>
 
     </div>
 

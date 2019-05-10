@@ -98,19 +98,11 @@ body{
     position: relative;
     top: 17px;
 }
-.socialNav{
-    position: relative;
-    top: -50px;
-}
-.socialMedia i{
-    font-size: 1.5em;
-    
-}
+
 /* end of login */
 /******************** 
     Register
 *********************/  
-
 .inputHolder{
     border-bottom: 1px solid #fff;
     padding-bottom: 10px;

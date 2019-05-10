@@ -33,7 +33,9 @@ function sendRequest(){
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addTransaction.php', params, function (data){
 
         getPending();
-        
+        $('#requestDescription').val('');
+        $(radioSelect).prop('checked',false);
+        $('#amountSelect').prop('selectedIndex',0)
     })
     
 }
@@ -57,7 +59,7 @@ function request(x){
         $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
             
             getPending();
-            
+        
         });
     }
     
@@ -67,28 +69,45 @@ function request(x){
 function showComments(x){
     
     //targetting the elements with the argument
-   var displayComment = $('#commentDisplay'+x);
-   //getting the parameters of the array
+//    var displayComment = $('#commentDisplay'+x);
+    var $commentHolder = $('#commentHolder'+x);
+   
+   // getting comment section to toggle
+   var $addCommentBtn = $('#addComment'+x);
+   //comment section toggle
+   var $commentSection = $('#commentSection'+x)
+   //
+   
 
+   
+    //getting the parameters of the array
    var params = {
         requestId:x,
         username:user.username,
     }
-
-    
-
-    //if display is none 
-   if(displayComment.css("display") == "none"){
-    //show the the elements
-       displayComment.slideToggle();
-      //otherwise hide the elements
-
+    //display of comment holder
+    if($commentHolder.css('display') == 'none'){
+        $commentHolder.slideToggle();
+        $commentHolder.css('display','flex');
+    }else{
+        $commentHolder.hide();
+    }
+    //display of comment section
+    if($commentSection.css('display') == 'none'){
+        $commentSection.slideToggle();
+    }else{
+        $commentSection.hide();
+    }
+    //display of add comment button
+   if($addCommentBtn.css('display') == "none"){
+         $addCommentBtn.slideToggle();
    }else{
-       displayComment.hide();
+        $addCommentBtn.hide();
    }
-
    
 }
+// arrow button rotate
+// var $arrow = $('#arrowFlash');
 
 function childApproved(x){
     var params ={
@@ -177,25 +196,33 @@ function getPending(){
             }
             //template is for placing Amount,description and status of user
             var template =
-             `<div class="pending-holder">
-                <div class="tablee pending">
-                <div class="amount chart-section">
-                    <span>Amount: `+ element.pendingRequest.amount +`</span>
+                `<div class="pending-holder">
+                    <div class="tablee pending">
+                        <div class="amountt chart-sectionn">
+                            <span>Amount: `+ element.pendingRequest.amount +`</span>
+                        </div>
+                        <div class="descriptionn chart-sectionn">
+                            <span>`+element.pendingRequest.description+`</span>
+                        </div>
+                        <div class="statuss">
+                            `+approvedHtml+`
+                        </div>
+                        <div class="commentbtn-holder">
+                             <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                            <i class="fas fa-arrow-circle-left arrow"`+element.pendingRequest.request_i+`"></i></button>
+                    </div>
                 </div>
-                <div class="descriptionn chart-section">
-                    <span>`+element.pendingRequest.description+`</span>
+             <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
+                <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                    <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                        `+commentSection+`
+                    </div>
+                    <div class="txt-holder">
+                        <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                        <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                    </div>
+                    
                 </div>
-                <div class="status">
-                    `+approvedHtml+`
-                </div>
-            </div>
-            <div class="comment-section">
-                <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
-                `+commentSection+`
-                </div>
-                <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
-                <button onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
-                <button onclick='showComments(`+element.pendingRequest.request_id+`)'>comment</button>
             </div>
         </div>`
         // setting our information in our HTML file

@@ -3,12 +3,17 @@
 test page style ****************/
 /* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
 @import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 /* header */
+body{
+    background-color: #b19c84;
+}
 header{
     background-color:  #3c434c;
-    height: 110px;
+    height: 130px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +43,8 @@ header{
 .coName{
     font-family: 'Vidaloka', serif;
     font-size: 1.2em;
-    color: #797d1c;
+    color: #bbc032;
+    border-bottom: 1px solid #bbc032;
 }
 .id-display{
     font-size: 1.8em;
@@ -69,23 +75,28 @@ header{
 /* Global Viewport Styles */
 /* display view */
 .display-holder{
-    width: 100vw;
+    width: 100%;
+    display: flex;
+    height: 100%;
 }
 /* End of display view */
 /* navbar */
 .nav-holder{
-    background-color: #70abaf;
-    width: 14.5%;
-    height: 100vh;
-    position: fixed;
     
+    width: 14.5%;
+    height: 100%;
+    position: relative;
+   
 }
 #statusNav{
+    background-color: #70abaf;
     display: flex;
     flex-direction: column;
     position: fixed;
     padding-top: 60px;
-    
+    height: 100vh;
+    width:14.5%;
+    border-right: 2px solid #fff;
 }
 /* End of Navbar */
 .tab{
@@ -168,19 +179,19 @@ header{
 .fas{
       color: rgb(60, 60, 60);
 }
-.fas:hover{
-    color: rgb(169, 110, 0);
+.tab:hover .fas{
+    color: rgb(227, 150, 6);
 }
 
 /* viewport */
 
 #viewport{
-    width: 84.8%;
-    height: auto;
+    width: 85.5%;
+    min-height: 100%;
     margin: 0;
     background-color: #b19c84;
-    position: relative;
     left: 14.3%;
+    padding: 0px 20px 0px 20px;
     /* padding: 20px; */
 }
 
@@ -211,12 +222,26 @@ header{
     width: 100%; 
     margin: 15px 0;
 }
+/* amount  */
+.amount{
+    
+    width: 25%;
+}
+.amount span{
+    color: #fff;
+}
+#amountSelect{
+    color: #000;
+}
+/* .amount{
+    padding-left: 20px;
+} */
 .table{
     width: 100%;
     height: 70px;
     background-color: rgba(193, 139, 155, 0.5);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 0px;
     border-radius: 5px;
@@ -236,31 +261,51 @@ header{
     box-shadow: -10px 5px 5px grey;
 }
 .description{
-    border-left: 1px solid #fff;
-    
+    width: 30%;
 }
 .descriptionn{
     border-left: 1px solid #fff;
     position: relative;
-    left: -17%;
+    left: 0;
 }
 #requestDescription{
     resize: none;
     height: 45px;
+    border-radius: 5px;
+    background-color:rgb(218, 214, 215);
+    width: 100%;
+    position: relative;
+    left: -60px;
+    font-size: 12px;
+    border: none;
+    padding: 5px;
+    box-shadow:-5px 5px 10px rgba(128, 128, 128, 0.603);
+    font-family: 'Playfair Display', serif;
 }
-.chart-section{
-    padding-left: 40px;
+.chart-sectionn{
+    width:25%;
+    padding-left: 20px;
+   
 }
-.chart-section span{
+
+.chart-sectionn span, .chart-sectionn{
     color: rgb(251, 251, 251);
 }
 .status{
+   
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.statuss{
+    color: #fff;
     width: 20%;
     border-left: 1px solid #fff;
-    padding-left: 10px;
     position: relative;
-    left: -20px;
     display: flex;
+    padding-left: 20px;
     justify-content: space-around;
     align-items: center;
 }
@@ -272,6 +317,7 @@ header{
     font-size: .8em;
     height: 30px;
     transition: all 0.3s ease-out;
+    margin-left: 20px;
 }
 .status-holder{
     font-family: 'Source Serif Pro', serif;
@@ -301,6 +347,7 @@ header{
     border-radius: 5px;
     border-bottom: 1px solid rgb(200, 200, 200);
     z-index: 20;
+    display: none;
     /* display: flex;
     justify-content: space-between; */
 }
@@ -308,22 +355,97 @@ header{
     cursor: pointer;
     color: #fff;
 }
+.submitComment{
+    margin-top: 10px;
+    padding: 4px;
+    border-radius: 10px;
+    border:none;
+    height: 30px;
+    width:60px;
+    font-family: 'El Messiri', sans-serif;
+    background-color:#4eb5f1;
+    color: #fff;
+    margin-bottom: 9px;
+    transition: all 0.2s ease-in;
+    font-size: 12px;
+   
+}
+.submitComment:hover{
+    transition: all 0.2s ease-out;
+    background-color: #4095c6;
+    border: 1px solid #fff;
+}
+.commentbtn-holder{
+    width:35px;
+}
+.commentbtn{
+    /* padding: 4px; */
+    border-radius: 5px;
+    border:none;
+    height: 70px;
+    width:35px;
+    background-color:#4eb5f1;
+    transition: all 0.2s ease-in;
+    font-size: 16px;
+}
+.commentbtn i{
+    color: #fff;
+}
+.commentbtn:hover{
+    transition: all 0.2s ease-out;
+    background-color: #4095c6;
+    border: 1px solid #fff;
+}
 .displayComment{
-    width: 100%;
+    width: 65%;
     background:grey;
     text-align: left;
-    overflow-y: scroll;
-    max-height: 400px;
-    display: none;
+    overflow-y: auto;
+    max-height: 300px;
 }
+
 .comment{
     margin: 10px;
     border-bottom: 1px solid white;
     color: #fff;
+    width: 95%;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
+    background-color: rgba(151, 151, 151, 0.692);
+    font-family: 'Playfair Display', serif;
 }
-#addComment{
+.txt-holder{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 20px;
+}
+.comment-holder{
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+}
+/* Arrow button  */
+.arrow{
+    transform: rotate(270deg);
+}
+
+/* comment btn */
+.addComment{
     resize: none;
-    width: 80%;
+    width: 95%;
+    height: 140px;
+    display: none;
+    border-radius: 5px;
+    background-color: rgb(211, 211, 211);
+    border: none;
+    color: #000;
+    box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
+    padding: 5px;
+    font-size: 12px;
+    font-family: 'Playfair Display', serif;
 }
 #displayPending{
     width: 100%;
