@@ -5,6 +5,9 @@ test page style ****************/
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
 /* header */
+body{
+    background-color: #b19c84;
+}
 header{
     background-color:  #3c434c;
     height: 130px;
@@ -70,6 +73,7 @@ header{
 .display-holder{
     width: 100%;
     display: flex;
+    height: 100%;
 }
 /* End of display view */
 /* navbar */
@@ -179,7 +183,7 @@ header{
 
 #viewport{
     width: 85.5%;
-    min-height: 545px;
+    min-height: 100%;
     margin: 0;
     background-color: #b19c84;
     left: 14.3%;
@@ -304,6 +308,7 @@ header{
     border-radius: 5px;
     border-bottom: 1px solid rgb(200, 200, 200);
     z-index: 20;
+    display: none;
     /* display: flex;
     justify-content: space-between; */
 }
@@ -327,6 +332,27 @@ header{
     left: 40%;
 }
 .submitComment:hover{
+    transition: all 0.2s ease-out;
+    background-color: #4095c6;
+    border: 1px solid #fff;
+}
+.commentbtn-holder{
+    width:35px;
+}
+.commentbtn{
+    /* padding: 4px; */
+    border-radius: 5px;
+    border:none;
+    height: 70px;
+    width:35px;
+    background-color:#4eb5f1;
+    transition: all 0.2s ease-in;
+    font-size: 16px;
+}
+.commentbtn i{
+    color: #fff;
+}
+.commentbtn:hover{
     transition: all 0.2s ease-out;
     background-color: #4095c6;
     border: 1px solid #fff;

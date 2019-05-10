@@ -74,6 +74,8 @@ function showComments(x){
    
    // getting comment section to toggle
    var $addCommentBtn = $('#addComment'+x);
+   var $commentSection = $('#commentSection'+x)
+   
     //getting the parameters of the array
    var params = {
         requestId:x,
@@ -88,6 +90,11 @@ function showComments(x){
         $commentHolder.hide();
     }
 
+    if($commentSection.css('display') == 'none'){
+        $commentSection.slideToggle();
+    }else{
+        $commentSection.hide();
+    }
 //     //if display is none 
 //    if(displayComment.css("display") == "none"){
 //     //show the the elements
@@ -106,6 +113,9 @@ function showComments(x){
    }
    
 }
+// $('#arrow').mouseover(function(){
+//     $(this).rotate();
+// })
 
 function childApproved(x){
     var params ={
@@ -159,8 +169,8 @@ function getPending(){
                     <span>`+comment.comment+`</span>
                 </div>`;
                
-                console.log(user.username)
-                console.log(comment.username)
+                // console.log(user.username)
+                // console.log(comment.username)
                 //setting comment section to comment template to place in the html format by adding one to it
                 commentSection += commentTemplate;
             });
@@ -207,8 +217,12 @@ function getPending(){
                 <div class="status">
                     `+approvedHtml+`
                 </div>
-            </div>
-            <div class="comment-section">
+                <div class="commentbtn-holder">
+                <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                    <i class="fas fa-arrow-circle-left arrow"></i></button>
+                </div>
+             </div>
+             <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
                 <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
                     <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                         `+commentSection+`
@@ -219,8 +233,6 @@ function getPending(){
                     </div>
                     
                 </div>
-                
-                <button onclick='showComments(`+element.pendingRequest.request_id+`)'>comment</button>
             </div>
         </div>`
         // setting our information in our HTML file
