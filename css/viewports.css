@@ -1,3 +1,4 @@
+
 /* *****************************
 test page style ****************/
 /* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
@@ -451,3 +452,76 @@ header{
 }
 
 /* ------End of Child Request------- */
+
+
+/* Begin Messenger Styles */
+
+.chat_container {
+    height: 80%;
+    width: 100%;
+    max-width: 800px;
+}
+
+#messages {
+    border: 5px #000 ridge;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.other_user {
+    width: 200px;
+    background-color: red;
+    border-radius: 7px;
+    align-self: flex-start;
+    position: relative;
+    padding: 10px; 
+    margin-bottom: 3px;
+}
+
+.user {
+    width: 200px;
+    background-color: grey;
+    border-radius: 7px;
+    align-self: flex-end;
+    position: relative;
+    padding: 10px; 
+    margin-bottom: 3px;
+}
+
+.input {
+    display: flex;
+    height: 40px;
+
+}
+
+#chat_input {
+    resize: none;
+    width: 100%;
+    height: 80%;
+    border: 5px #000 ridge;
+}
+
+#send_mess {
+    width: 80px;
+    height: 80%;
+    border: 3px ridge #000;
+    margin-left: 10px;
+}
+
+.message_text {
+    margin: 5px;
+}
+
+.time_stamp {
+ position: absolute;
+ right: 5px;
+ bottom: 0px;
+}
+
+/* End Messenger Styles */
+

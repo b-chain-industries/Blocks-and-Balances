@@ -114,7 +114,7 @@ function childApproved(x){
         requestId:x
     }
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/childApproval.php',params,function(data){
-    console.log(data)
+        getPending();
     })
 }
 
@@ -160,9 +160,7 @@ function getPending(){
                     <span>`+comment.username+`</span><br/>
                     <span>`+comment.comment+`</span>
                 </div>`;
-               
-                // console.log(user.username)
-                // console.log(comment.username)
+
                 //setting comment section to comment template to place in the html format by adding one to it
                 commentSection += commentTemplate;
             });
