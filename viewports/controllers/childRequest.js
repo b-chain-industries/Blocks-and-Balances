@@ -20,6 +20,7 @@ function sendRequest(){
         
     }
     //getting different parameters
+    
     var params = {
         amount: amount,
         description: userDescriptoion,
@@ -64,6 +65,7 @@ function request(x){
 
 //function to hide the comments
 function showComments(x){
+    
     //targetting the elements with the argument
    var displayComment = $('#commentDisplay'+x);
    //getting the parameters of the array
@@ -73,16 +75,19 @@ function showComments(x){
         username:user.username,
     }
 
+    
+
     //if display is none 
    if(displayComment.css("display") == "none"){
     //show the the elements
-       displayComment.show();
+       displayComment.slideToggle();
       //otherwise hide the elements
 
    }else{
        displayComment.hide();
    }
 
+   
 }
 
 function childApproved(x){
@@ -112,10 +117,13 @@ function getPending(){
             relationId : parseInt(user.relation_id),
             userId : parseInt(user.ID),
         };
-        console.log(user);
+        
         //Posting user information from our data base to the browser
         $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", params, function( data ) {
-            //clearing old HTML without refreshing the browsers
+        //border display
+        var $border = $('#border-show');
+        $border.show(); 
+        //clearing old HTML without refreshing the browsers
             document.getElementById('displayPending').innerHTML = "";
         // making the string to objects by using JSON.parse
         data = JSON.parse(data);
@@ -133,9 +141,18 @@ function getPending(){
                     <span>`+comment.username+`</span><br/>
                     <span>`+comment.comment+`</span>
                 </div>`;
+               
+                console.log(user.username)
+                console.log(comment.username)
                 //setting comment section to comment template to place in the html format by adding one to it
                 commentSection += commentTemplate;
-            })
+            });
+            // if(comment.username == user.username){
+            //     $('.comment').style.right = '0 px';
+            // }else{
+            //     $('.comment').style.left = '0px';
+            // }
+
             //displaying status for master
             if(element.pendingRequest.master_approval == "0"){
                 element.pendingRequest.master_approval = "Denied"
@@ -161,12 +178,13 @@ function getPending(){
                 approvedHtml += `<button onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
             }
             //template is for placing Amount,description and status of user
-            var template = `<div class="pending-holder">
-            <div class="table pending">
+            var template =
+             `<div class="pending-holder">
+                <div class="tablee pending">
                 <div class="amount chart-section">
                     <span>Amount: `+ element.pendingRequest.amount +`</span>
                 </div>
-                <div class="description chart-section">
+                <div class="descriptionn chart-section">
                     <span>`+element.pendingRequest.description+`</span>
                 </div>
                 <div class="status">
@@ -174,7 +192,6 @@ function getPending(){
                 </div>
             </div>
             <div class="comment-section">
-                <span id="commentBtn">Comment</span>
                 <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                 `+commentSection+`
                 </div>
