@@ -74,38 +74,31 @@ function showComments(x){
    
    // getting comment section to toggle
    var $addCommentBtn = $('#addComment'+x);
+   //comment section toggle
    var $commentSection = $('#commentSection'+x)
+   //
+   
+
    
     //getting the parameters of the array
    var params = {
         requestId:x,
         username:user.username,
     }
-
+    //display of comment holder
     if($commentHolder.css('display') == 'none'){
         $commentHolder.slideToggle();
         $commentHolder.css('display','flex');
-
     }else{
         $commentHolder.hide();
     }
-
+    //display of comment section
     if($commentSection.css('display') == 'none'){
         $commentSection.slideToggle();
     }else{
         $commentSection.hide();
     }
-//     //if display is none 
-//    if(displayComment.css("display") == "none"){
-//     //show the the elements
-//        displayComment.slideToggle();
-//       //otherwise hide the elements
-
-//    }else{
-//        displayComment.hide();
-//    }
-
-
+    //display of add comment button
    if($addCommentBtn.css('display') == "none"){
          $addCommentBtn.slideToggle();
    }else{
@@ -113,9 +106,8 @@ function showComments(x){
    }
    
 }
-// $('#arrow').mouseover(function(){
-//     $(this).rotate();
-// })
+// arrow button rotate
+// var $arrow = $('#arrowFlash');
 
 function childApproved(x){
     var params ={
@@ -219,7 +211,7 @@ function getPending(){
                 </div>
                 <div class="commentbtn-holder">
                 <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
-                    <i class="fas fa-arrow-circle-left arrow"></i></button>
+                    <i class="fas fa-arrow-circle-left" id="arrowFlash`+element.pendingRequest.request_i+`"></i></button>
                 </div>
              </div>
              <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">

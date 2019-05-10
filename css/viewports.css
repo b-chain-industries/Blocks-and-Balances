@@ -2,6 +2,7 @@
 test page style ****************/
 /* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
 @import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
 /* header */
@@ -40,7 +41,8 @@ header{
 .coName{
     font-family: 'Vidaloka', serif;
     font-size: 1.2em;
-    color: #797d1c;
+    color: #bbc032;
+    border-bottom: 1px solid #bbc032;
 }
 .id-display{
     font-size: 1.8em;
@@ -317,6 +319,7 @@ header{
     color: #fff;
 }
 .submitComment{
+    margin-top: 10px;
     padding: 4px;
     border-radius: 10px;
     border:none;
@@ -328,8 +331,7 @@ header{
     margin-bottom: 9px;
     transition: all 0.2s ease-in;
     font-size: 12px;
-    position: relative;
-    left: 40%;
+   
 }
 .submitComment:hover{
     transition: all 0.2s ease-out;
@@ -370,22 +372,44 @@ header{
     border-bottom: 1px solid white;
     color: #fff;
     width: 95%;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
+    background-color: rgba(151, 151, 151, 0.692);
 }
 .txt-holder{
     width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 20px;
 }
 .comment-holder{
     width: 100%;
     display: none;
     justify-content: space-between;
 }
+/* Arrow button  */
+.arrow{
+    transform: rotate(180deg);
+}
+.arrowReturn{
+    
+}
 
+
+/* comment btn */
 .addComment{
     resize: none;
     width: 95%;
     height: 140px;
     display: none;
-    
+    border-radius: 5px;
+    background-color: rgb(184, 184, 184);
+    border: none;
+    color: #000;
+    box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
+    padding: 5px;
 }
 #displayPending{
     width: 100%;
