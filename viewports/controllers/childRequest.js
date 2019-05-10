@@ -198,22 +198,22 @@ function getPending(){
             }
             //template is for placing Amount,description and status of user
             var template =
-             `<div class="pending-holder">
-                <div class="tablee pending">
-                <div class="amount chart-section">
-                    <span>Amount: `+ element.pendingRequest.amount +`</span>
+                `<div class="pending-holder">
+                    <div class="tablee pending">
+                        <div class="amountt chart-sectionn">
+                            <span>Amount: `+ element.pendingRequest.amount +`</span>
+                        </div>
+                        <div class="descriptionn chart-sectionn">
+                            <span>`+element.pendingRequest.description+`</span>
+                        </div>
+                        <div class="statuss">
+                            `+approvedHtml+`
+                        </div>
+                        <div class="commentbtn-holder">
+                             <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                            <i class="fas fa-arrow-circle-left arrow"`+element.pendingRequest.request_i+`"></i></button>
+                    </div>
                 </div>
-                <div class="descriptionn chart-section">
-                    <span>`+element.pendingRequest.description+`</span>
-                </div>
-                <div class="status">
-                    `+approvedHtml+`
-                </div>
-                <div class="commentbtn-holder">
-                <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
-                    <i class="fas fa-arrow-circle-left" id="arrowFlash`+element.pendingRequest.request_i+`"></i></button>
-                </div>
-             </div>
              <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
                 <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
                     <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">

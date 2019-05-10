@@ -5,6 +5,7 @@ test page style ****************/
 @import url('https://fonts.googleapis.com/css?family=Vidaloka');
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 /* header */
 body{
     background-color: #b19c84;
@@ -220,12 +221,26 @@ header{
     width: 100%; 
     margin: 15px 0;
 }
+/* amount  */
+.amount{
+    
+    width: 25%;
+}
+.amount span{
+    color: #fff;
+}
+#amountSelect{
+    color: #000;
+}
+/* .amount{
+    padding-left: 20px;
+} */
 .table{
     width: 100%;
     height: 70px;
     background-color: rgba(193, 139, 155, 0.5);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-bottom: 0px;
     border-radius: 5px;
@@ -245,31 +260,51 @@ header{
     box-shadow: -10px 5px 5px grey;
 }
 .description{
-    border-left: 1px solid #fff;
-    
+    width: 30%;
 }
 .descriptionn{
     border-left: 1px solid #fff;
     position: relative;
-    left: -17%;
+    left: 0;
 }
 #requestDescription{
     resize: none;
     height: 45px;
+    border-radius: 5px;
+    background-color:rgb(218, 214, 215);
+    width: 100%;
+    position: relative;
+    left: -60px;
+    font-size: 12px;
+    border: none;
+    padding: 5px;
+    box-shadow:-5px 5px 10px rgba(128, 128, 128, 0.603);
+    font-family: 'Playfair Display', serif;
 }
-.chart-section{
-    padding-left: 40px;
+.chart-sectionn{
+    width:25%;
+    padding-left: 20px;
+   
 }
-.chart-section span{
+
+.chart-sectionn span, .chart-sectionn{
     color: rgb(251, 251, 251);
 }
 .status{
+   
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.statuss{
+    color: #fff;
     width: 20%;
     border-left: 1px solid #fff;
-    padding-left: 10px;
     position: relative;
-    left: -20px;
     display: flex;
+    padding-left: 20px;
     justify-content: space-around;
     align-items: center;
 }
@@ -281,6 +316,7 @@ header{
     font-size: .8em;
     height: 30px;
     transition: all 0.3s ease-out;
+    margin-left: 20px;
 }
 .status-holder{
     font-family: 'Source Serif Pro', serif;
@@ -376,6 +412,7 @@ header{
     border-radius: 5px;
     box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
     background-color: rgba(151, 151, 151, 0.692);
+    font-family: 'Playfair Display', serif;
 }
 .txt-holder{
     width: 30%;
@@ -391,12 +428,8 @@ header{
 }
 /* Arrow button  */
 .arrow{
-    transform: rotate(180deg);
+    transform: rotate(270deg);
 }
-.arrowReturn{
-    
-}
-
 
 /* comment btn */
 .addComment{
@@ -405,11 +438,13 @@ header{
     height: 140px;
     display: none;
     border-radius: 5px;
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(211, 211, 211);
     border: none;
     color: #000;
     box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
     padding: 5px;
+    font-size: 12px;
+    font-family: 'Playfair Display', serif;
 }
 #displayPending{
     width: 100%;
