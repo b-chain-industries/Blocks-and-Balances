@@ -95,7 +95,6 @@ function childApproved(x){
         requestId:x
     }
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/childApproval.php',params,function(data){
-        console.log(data)
         getPending();
     })
 }
