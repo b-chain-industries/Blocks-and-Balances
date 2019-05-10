@@ -1,7 +1,11 @@
-setInterval(getMessages(), 500)
+
 function getMessages(){
+    console.log("fired");
+    
+    
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id},
      function(data){
+        document.getElementById("messages").innerHTML = "";
         const messages = JSON.parse(data)
         messages.forEach(function(result){
             let loggedInUser = user.ID

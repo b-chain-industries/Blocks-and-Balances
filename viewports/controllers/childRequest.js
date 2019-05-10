@@ -141,9 +141,7 @@ function getPending(){
                     <span>`+comment.username+`</span><br/>
                     <span>`+comment.comment+`</span>
                 </div>`;
-               
-                console.log(user.username)
-                console.log(comment.username)
+
                 //setting comment section to comment template to place in the html format by adding one to it
                 commentSection += commentTemplate;
             });
