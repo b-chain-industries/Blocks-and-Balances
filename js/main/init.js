@@ -80,7 +80,7 @@ function initNav(status){
          </div>`;
     } else {
         statusNav.innerHTML =
-        `<div id="initTab" class="tab" onclick="getViewport('masterRequest')><i class="fas fa-exchange-alt"></i>Requests</div>
+        `<div id="initTab" class="tab" onclick="getViewport('masterRequest')"><i class="fas fa-exchange-alt"></i>Requests</div>
         <div class="tab" onclick="getViewport('transHist')"><i class="fas fa-chart-bar"></i>Transaction History</div>
          <div class="tab" onclick="getViewport('messenger')"><i class="fas fa-comment"></i>Messenger</div>
          <div  class="tab" ><i class="fab fa-vimeo-v fas"></i>Overview</div>
@@ -96,15 +96,4 @@ function initNav(status){
         </div>`;
 
     }
-}
-
-function logout(){
-    $.post('http://blocksandbalancesserver.000webhostapp.com/user/logout.php', {id:user.ID}, function (data){
-        console.log(data);
-        data = JSON.stringify(data);
-
-        if(data.status){
-            window.location = "index.html";
-        }
-    });
 }
