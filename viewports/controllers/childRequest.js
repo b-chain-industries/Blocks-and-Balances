@@ -76,9 +76,22 @@ function showComments(x){
    var $addCommentBtn = $('#addComment'+x);
    //comment section toggle
    var $commentSection = $('#commentSection'+x)
-   //
    
+   // arrow button rotate
+  
+    
 
+   function AnimateRotate(d){
+    var $arrow = $('#arrow'+x);
+    $({deg: 0}).animate({deg: d}, {
+        duration: 500,
+        step: function(now){
+            $arrow.css({
+                 transform: "rotate(" + now + "deg)"
+            });
+        }
+    });
+}
    
     //getting the parameters of the array
    var params = {
@@ -89,8 +102,10 @@ function showComments(x){
     if($commentHolder.css('display') == 'none'){
         $commentHolder.slideToggle();
         $commentHolder.css('display','flex');
+        AnimateRotate(90);
     }else{
         $commentHolder.hide();
+        AnimateRotate(-90);
     }
     //display of comment section
     if($commentSection.css('display') == 'none'){
@@ -106,8 +121,7 @@ function showComments(x){
    }
    
 }
-// arrow button rotate
-// var $arrow = $('#arrowFlash');
+
 
 function childApproved(x){
     var params ={
@@ -162,14 +176,10 @@ function getPending(){
                 </div>`;
 
                 //setting comment section to comment template to place in the html format by adding one to it
+
                 commentSection += commentTemplate;
             });
-            // if(comment.username == user.username){
-            //     $('.comment').style.right = '0 px';
-            // }else{
-            //     $('.comment').style.left = '0px';
-            // }
-
+          
             //displaying status for master
             if(element.pendingRequest.master_approval == "0"){
                 element.pendingRequest.master_approval = "Denied"
@@ -192,7 +202,9 @@ function getPending(){
             <span id="statusDisplay">`+master2+": "+element.pendingRequest.miner_approval+`</span>`
             //child approval
             if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
-                approvedHtml += `<button  class="approve-button"onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
+
+                approvedHtml += `<button class="approve-button" onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
+
             }
             //template is for placing Amount,description and status of user
             var template =
@@ -209,7 +221,7 @@ function getPending(){
                         </div>
                         <div class="commentbtn-holder">
                              <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
-                            <i class="fas fa-arrow-circle-left arrow"`+element.pendingRequest.request_i+`"></i></button>
+                            <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                     </div>
                 </div>
              <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
