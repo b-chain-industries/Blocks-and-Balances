@@ -261,11 +261,13 @@ header{
 }
 .description{
     width: 30%;
+    color: #fff;
 }
 .descriptionn{
     border-left: 1px solid #fff;
     position: relative;
     left: 0;
+    
 }
 #requestDescription{
     resize: none;
@@ -328,6 +330,7 @@ header{
 }
 #statusDisplay{
     font-family: 'Source Serif Pro', serif;
+    padding-left: 10px;
 }
 .border{
     margin-top: 40px;
@@ -428,9 +431,18 @@ header{
 }
 /* Arrow button  */
 .arrow{
-    transform: rotate(270deg);
+    transform: rotate(-90deg);
 }
-
+/* approve button  */
+.approve-button{
+    border-radius: 5px;
+    color: #000;
+    position: relative;
+    left: 60px;
+    width: 70px;
+    height: 25px;
+    font-family: 'Source Serif Pro', serif;
+}
 /* comment btn */
 .addComment{
     resize: none;

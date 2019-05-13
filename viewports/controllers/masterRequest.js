@@ -36,7 +36,7 @@ function getMasterPending(){
              <div class="description chart-section">
                  <span>` +element.pendingRequest.description+ `</span>
              </div>
-             <div id="status">
+             <div id="statuss">
                  <input name="requestStatus" type="radio" value="1"/>
                  <span>Approve</span>
                  <input name="requestStatus" type="radio" value="0"/>
@@ -63,18 +63,20 @@ console.log(user.ID);
 
 
  if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
-     template = `<div class="pending-holder">
-    <div class="table pending">
-        <div class="amount chart-section">
-            <span>` +element.pendingRequest.amount+ `</span>
+     template = 
+     `<div class="pending-holder">
+        <div class="tablee pending">
+            <div class="amountt chart-sectionn">
+                <span>` +element.pendingRequest.amount+ `</span>
+            </div>
+            <div class="descriptionn chart-sectionn">
+                <span>` +element.pendingRequest.description+ `</span>
+            </div>
+            <div id="status">
+            
+            </div>
+            
         </div>
-        <div class="description chart-section">
-            <span>` +element.pendingRequest.description+ `</span>
-        </div>
-        <div id="status">
-        </div>
-
-    </div>
 
     <div class="comment-section">
             <span id="commentBtn">Comment</span>
@@ -91,7 +93,7 @@ console.log(user.ID);
  if (element.pendingRequest.miner_approval != null && element.pendingRequest.miner == user.ID){
     template = `<div class="pending-holder">
    <div class="table pending">
-       <div class="amount chart-section">
+       <div class="amount chart-sectionn">
            <span>` +element.pendingRequest.amount+ `</span>
        </div>
        <div class="description chart-section">
