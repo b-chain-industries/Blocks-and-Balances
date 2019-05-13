@@ -192,7 +192,7 @@ function getPending(){
             <span id="statusDisplay">`+master2+": "+element.pendingRequest.miner_approval+`</span>`
             //child approval
             if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
-                approvedHtml += `<button onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
+                approvedHtml += `<button  class="approve-button"onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
             }
             //template is for placing Amount,description and status of user
             var template =
