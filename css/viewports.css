@@ -224,7 +224,7 @@ header{
 }
 /* amount  */
 .amount{
-    
+    color: #fff;
     width: 25%;
 }
 .amount span{
@@ -283,6 +283,7 @@ header{
     padding: 5px;
     box-shadow:-5px 5px 10px rgba(128, 128, 128, 0.603);
     font-family: 'Playfair Display', serif;
+    color: rgb(74, 74, 74);
 }
 .chart-sectionn{
     width:25%;
@@ -469,13 +470,14 @@ header{
 /* Begin Messenger Styles */
 
 .chat_container {
-    height: 80%;
+    height: 90%;
     width: 100%;
     max-width: 800px;
+    background-color: rgb(255, 255, 255);
 }
 
 #messages {
-    border: 5px #000 ridge;
+    border: 5px #000;
     width: 100%;
     height: 500px;
     margin-bottom: 10px;
