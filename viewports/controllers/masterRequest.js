@@ -27,7 +27,7 @@ function getMasterPending(){
             commentTemplate += temp;
         });
 
-// Pending request template
+// HTML pending request template
         let template = `<div class="pending-holder">
          <div class="table pending">
              <div class="amount chart-section">
@@ -61,6 +61,7 @@ console.log(element.pendingRequest.master_approval);
 console.log(element.pendingRequest.master_requested);
 console.log(user.ID);
 
+// This HTML template will will be sent to miner if approved or back to child if denied
  if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
      template = `<div class="pending-holder">
     <div class="table pending">
@@ -85,6 +86,7 @@ console.log(user.ID);
 </div>`
  }
 
+ // This HTML template will return from miner without button if clicked approved or denied
  if (element.pendingRequest.miner_approval != null && element.pendingRequest.miner == user.ID){
     template = `<div class="pending-holder">
    <div class="table pending">
@@ -110,6 +112,11 @@ console.log(user.ID);
 
 </div>`
 }
+
+
+
+
+
 // console.log(user);
      document.getElementById("master-content").innerHTML += template;
 

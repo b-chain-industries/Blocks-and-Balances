@@ -4,25 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/viewports.css">
     <title>Document</title>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/main/init.js"></script>
-    <script type="text/javascript">
+    <script>
         var user;
         var uid;
     </script>
 </head>
 
 <body>
-    <h1>Hello <span id="usernameDisplay"></span>!</h1>
-    <p>Current Balance: <span id="balance"></span></p>
-    <nav id="statusNav">
-         <div class="loader"></div>
-    </nav>
-    <div id="viewport" class="container">viewport</div>
+    <header>
+        <div class="id-holder">
+            <h1 class='id-display font'>Hello <span id="usernameDisplay"></span></h1>
+            <h6 class="balance-display font">Current Balance: <span id="balance"></span></h6>
+            <span id="date" class="font"></span>
+        </div>
+        <div class="brand">
+             <img src="img/logo.jpg" alt="logo" class="logo"> 
+             <span class="coName"alt="Company's name">Blocks & Balances</span>
+        </div>
+       
+    </header>
+    <div class="display-holder">
+        <div class="nav-holder">
+            <nav id="statusNav">
+                    <div class="loader"></div>
+            </nav>
+        </div>
+        
+            
+        <div id="viewport" class="container">viewport</div>
+    </div>
+    
 </body>
 </html>
 <script type="text/javascript" src="js/main/nav.js"></script>
