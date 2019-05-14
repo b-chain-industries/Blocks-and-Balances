@@ -1,8 +1,5 @@
 
 function getMessages(){
-    console.log("fired");
-    
-    
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id},
      function(data){
         document.getElementById("messages").innerHTML = "";
@@ -11,6 +8,7 @@ function getMessages(){
             let loggedInUser = user.ID
             let messageText = result.message
             let timeStamp = result.timestamp
+            
             let userTemplate = `<div class="user">
                                     <div class="message_text">`
                                         +messageText+
@@ -32,22 +30,25 @@ function getMessages(){
                 document.getElementById("messages").innerHTML += otherUserTemplate;
             }
         });
+
+        function scrollBottom (messages) {
+            var div = document.getElementById(messages);
+            div.scrollTop = div.scrollHeight - div.clientHeight;
+         }        
+         scrollBottom("messages")
     });
+    
 }
 
 
+
 function postMessages(){
+
     let params = {relationId: user.relation_id, userId: user.ID, username: user.username, message: document.getElementById("chat_input").value}
 
-    function clearTexArea(){
-        document.getElementById('chat_input').value='';
-    }
-
-    $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params,
-    function(messageResponse){getMessages()
+        $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params, function(messageResponse){
+            getMessages()
+                 document.getElementById('chat_input').value='';       
     
-            
-    
-    }
-    )
+    })
 }
