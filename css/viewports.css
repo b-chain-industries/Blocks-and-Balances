@@ -465,6 +465,20 @@ header{
 
 /* ------End of Child Request------- */
 
+/* Begin Transacton History Styles */
+
+.histApproved {
+    
+    background-color: green;
+
+}
+
+.histDenied {
+    background-color: red; 
+}
+
+/* End Transaction History Styles */
+
 
 /* Begin Messenger Styles */
 
