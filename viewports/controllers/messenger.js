@@ -44,5 +44,10 @@ function postMessages(){
     }
 
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params,
-    function(messageResponse){getMessages()})
+    function(messageResponse){getMessages()
+    
+            
+    
+    }
+    )
 }
