@@ -1,5 +1,8 @@
 function getTransactionHistory(){
-    $.ajax({url: "http://blocksandbalancesserver.000webhostapp.com/practice/transaction-history.php", success:
+    var params = {
+        relationId: user.relation_id
+    }
+    $.post("http://blocksandbalancesserver.000webhostapp.com/transactions/getTransHist.php", params,
      function(result){
         const transHist = JSON.parse(result)
         transHist.forEach(function(result){
@@ -30,5 +33,5 @@ function getTransactionHistory(){
                             <div class="border"></div>`
             document.getElementById("trans_content").innerHTML += template;
         });
-    }});   
+    });   
 }
