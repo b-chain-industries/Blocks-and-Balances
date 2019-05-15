@@ -26,7 +26,7 @@ function getTransactionHistory(){
 
 
                 let template = `<div class="pending-holder ` +transHistClass+ `">
-                                    <div class="table">
+                                    <div class="table-history">
                                         <div class="amount chart-section">
                                             Amount: `+result.amount+`
                                         </div>
@@ -40,6 +40,7 @@ function getTransactionHistory(){
                                 </div>
                                 <div class="border"></div>`
                 document.getElementById("trans_content").innerHTML += template;
+                $('.table').css('background-color','none')
             });
         }
 

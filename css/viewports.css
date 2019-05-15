@@ -260,6 +260,11 @@ header{
     border-bottom: 1px solid rgb(200, 200, 200);
     box-shadow: -10px 5px 5px grey;
 }
+.table-history{
+    width: 100%;
+    height: 70px;
+    background-color: 
+}
 .description{
     width: 30%;
     color: #fff;
@@ -513,7 +518,7 @@ header{
 
 .histApproved {
     
-    background-color: rgb(86, 127, 86);
+    background-color: #8ca690;
     border-radius: 5px;
 }
 
@@ -521,7 +526,9 @@ header{
     background-color: rgb(57, 29, 29); 
     border-radius: 5px;
 }
-
+.transactionStatus{
+    color:#fff;
+}
 /* End Transaction History Styles */
 
 
@@ -611,10 +618,6 @@ header{
     background-color:#4eb5f1;
     transition: all 0.3s ease-out;
     color: #fff;
-}
-
-.message_text {
-   
 }
 
 .time_stamp {
