@@ -11,9 +11,11 @@ function getMasterPending(x){
         document.getElementById("master-content").innerHTML = "";
 // Turing a String into object, array
     const block = JSON.parse(data);
+
     
     if(block.length == 0){
         var template = "No request at this time.";
+
         document.getElementById("master-content").innerHTML = template;
         
     }else{
