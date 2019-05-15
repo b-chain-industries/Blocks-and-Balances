@@ -312,6 +312,11 @@ header{
     justify-content: space-around;
     align-items: center;
 }
+.statusbtn{
+   color: #000;
+   position: relative;
+   left: 30px;
+}
 .status span{
     color: rgb(251, 251, 251);
 }
@@ -471,11 +476,12 @@ header{
 .histApproved {
     
     background-color: green;
-
+    border-radius: 5px;
 }
 
 .histDenied {
     background-color: red; 
+    border-radius: 5px;
 }
 
 /* End Transaction History Styles */
@@ -558,6 +564,11 @@ header{
     margin-left: 10px;
     border: 2px rgb(100, 100, 100) solid;
     border-radius: 5px;
+    transition: all 0.3s ease-in;
+}
+#send_mess:hover{
+    background-color:#4eb5f1;
+    transition: all 0.3s ease-out;
 }
 
 
