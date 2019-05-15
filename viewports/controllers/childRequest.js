@@ -28,6 +28,9 @@ function sendRequest(){
         relationId : user.relation_id,
         masterRequested : status,
     }
+
+    $("#requestLoader").css("display","flex");
+    $("#requestSubmit").hide();
     console.log(params);
     //posting to data base to get response for the parameters
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addTransaction.php', params, function (data){
@@ -36,6 +39,8 @@ function sendRequest(){
         $('#requestDescription').val('');
         $(radioSelect).prop('checked',false);
         $('#amountSelect').prop('selectedIndex',0)
+        $("#requestLoader").hide();
+        $("#requestSubmit").show();
     })
     
 }
@@ -220,7 +225,7 @@ function getPending(){
                             `+approvedHtml+`
                         </div>
                         <div class="commentbtn-holder">
-                             <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                            <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
                             <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ $.post("http://blocksandbalancesserver.000webhostapp.com/user/getUser.php", {id:
     data = JSON.parse(data);
     user = data;
     
-    if (data.token !== userToken){
+    if (data.token !== userToken || data.token == null){
         window.location = "index.html";
         
     }
