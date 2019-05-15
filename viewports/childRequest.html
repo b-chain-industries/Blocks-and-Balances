@@ -28,37 +28,32 @@
                 </div>
                 <button onclick="sendRequest()" class="status-submit" id="requestSubmit">Submit</button>
                 <div id="requestLoader" class="loaderWrapper">
-                    <div class="container-s">
-                        <div class="holder-s">
-                            <div class="box-s"></div>
-                        </div>
-                        <div class="holder-s">
-                            <div class="box-s"></div>
-                        </div>
-                        <div class="holder-s">
-                            <div class="box-s"></div>
-                        </div>
+                    <div id="submitHolder">
+                        <div id="box1" class="submitBox"></div>
+                        <div id="box2" class="submitBox"></div>
+                        <div id="box3" class="submitBox"></div>
+                        <div id="box4" class="submitBox"></div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
     <div class="border borderShow" id="border-show"></div>
     <h2 class="title-display">Pending Resquest</h2>
-    <br/><br/>
-        <div class="container">
-            <div class="holder">
-              <div class="box"></div>
+    
+    <div id="displayPending">
+        <div class="container-m">
+            <div class="holder-m">
+              <div class="box-m"></div>
             </div>
-            <div class="holder">
-              <div class="box"></div>
+            <div class="holder-m">
+              <div class="box-m"></div>
             </div>
-            <div class="holder">
-              <div class="box"></div>
+            <div class="holder-m">
+              <div class="box-m"></div>
             </div>
         </div>
-    <div id="displayPending">
-        
     </div>
     <script type="text/javascript">
         var requestId;

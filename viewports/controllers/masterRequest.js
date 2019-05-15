@@ -16,7 +16,8 @@ function getMasterPending(){
     }else{
         // Forms the pending list, Loop
     block.forEach(function(element){
-        // This is the comment section to be filled by templates below        
+
+// This is the comment section to be filled by templates below        
                 let commentTemplate = "";
         // This fills the comment, Loop
                 element.comments.forEach(function(comment){
@@ -52,6 +53,51 @@ function getMasterPending(){
                                 <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                             </div>
                         </div>
+        
+                <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
+                <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                    <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                        `+commentTemplate+`
+                    </div>
+                    <div class="txt-holder">
+                        <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                        <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                    </div>
+                    
+                </div>
+        </div>`;
+// Adds the templete to the HTML target
+
+
+// This HTML template will will be sent to miner if approved or back to child if denied
+ if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
+     template = 
+     `<div class="pending-holder">
+            <div class="tablee pending">
+                <div class="amountt chart-sectionn">
+                    <span>` +element.pendingRequest.amount+ `</span>
+                </div>
+                <div class="descriptionn chart-sectionn">
+                    <span>` +element.pendingRequest.description+ `</span>
+                </div>
+                <div class="statuss">
+                </div>
+                <div class="commentbtn-holder">
+                    <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                    <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
+                </div>
+            </div>
+
+            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
+            <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                    `+commentTemplate+`
+                </div>
+                <div class="txt-holder">
+                    <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                    <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                </div>
+
                 
                         <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
                         <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
@@ -73,18 +119,20 @@ function getMasterPending(){
              template = 
              `<div class="pending-holder">
                     <div class="tablee pending">
-                        <div class="amountt chart-sectionn">
+                        <div class="amount chart-section">
                             <span>` +element.pendingRequest.amount+ `</span>
                         </div>
-                        <div class="descriptionn chart-sectionn">
+                        <div class="description chart-section">
                             <span>` +element.pendingRequest.description+ `</span>
                         </div>
+
                         <div id="statuss">
                         </div>
                         <div class="commentbtn-holder">
                             <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
                             <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                         </div>
+
                     </div>
         
                     <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
