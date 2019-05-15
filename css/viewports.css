@@ -552,7 +552,7 @@ header{
  position: absolute;
  right: 5px;
  bottom: 0px;
- padding-bottom: 5px;
+ /* padding-top: 5px; */
 }
 
 /* End Messenger Styles */
