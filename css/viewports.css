@@ -233,6 +233,11 @@ header{
 #amountSelect{
     color: #000;
 }
+.loaderWrapper{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
 /* .amount{
     padding-left: 20px;
 } */
