@@ -784,3 +784,65 @@
   }
   
  
+
+  /* *****************  Accept loader ****************** */
+  
+  @-webkit-keyframes pulse {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes pulse {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .loading {
+    width: 2em;
+  }
+  
+  .loading-element {
+    -webkit-animation: pulse 0.4s ease-in-out alternate infinite;
+    -moz-animation: pulse 0.4s ease-in-out alternate infinite;
+    animation: pulse 0.4s ease-in-out alternate infinite;
+    width: 1em;
+    height: 1em;
+    background-color: #70ABAF;
+    float: left;
+  }
+  .loading-element:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+  }
+  .loading-element:nth-child(3) {
+    -webkit-animation-delay: 0.15s;
+    -moz-animation-delay: 0.15s;
+    animation-delay: 0.15s;
+  }
+  .loading-element:nth-child(4) {
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+  
