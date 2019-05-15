@@ -26,13 +26,40 @@
                     <input name="masterSelect" type="radio" value="2"/>
                     <span id="master2Display">Master 2</span>
                 </div>
-                <button onclick="sendRequest()" class="status-submit">Submit</button>
+                <button onclick="sendRequest()" class="status-submit" id="requestSubmit">Submit</button>
+                <div id="requestLoader" class="loaderWrapper">
+                    <div class="container-s">
+                        <div class="holder-s">
+                            <div class="box-s"></div>
+                        </div>
+                        <div class="holder-s">
+                            <div class="box-s"></div>
+                        </div>
+                        <div class="holder-s">
+                            <div class="box-s"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="border borderShow" id="border-show"></div>
     <h2 class="title-display">Pending Resquest</h2>
-    <div id="displayPending"></div>
+    <br/><br/>
+        <div class="container">
+            <div class="holder">
+              <div class="box"></div>
+            </div>
+            <div class="holder">
+              <div class="box"></div>
+            </div>
+            <div class="holder">
+              <div class="box"></div>
+            </div>
+        </div>
+    <div id="displayPending">
+        
+    </div>
     <script type="text/javascript">
         var requestId;
         getPending();
