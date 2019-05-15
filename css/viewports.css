@@ -436,6 +436,9 @@ header{
     display: none;
     justify-content: space-between;
 }
+.showComments{
+    display: flex;
+}
 /* Arrow button  */
 .arrow{
     transform: rotate(-90deg);
@@ -455,7 +458,7 @@ header{
     resize: none;
     width: 95%;
     height: 140px;
-    display: none;
+    /* display: none; */
     border-radius: 5px;
     background-color: rgb(211, 211, 211);
     border: none;
@@ -580,6 +583,7 @@ header{
 }
 
 .time_stamp {
+
  position: relative;
  left: 135px;
  font-size: 12px;
