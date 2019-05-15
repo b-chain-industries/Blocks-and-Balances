@@ -1,3 +1,9 @@
+.loaderWrapper{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
 /* *****************  Small loader ****************** */
 *, *:before, *:after {
   box-sizing: border-box;
