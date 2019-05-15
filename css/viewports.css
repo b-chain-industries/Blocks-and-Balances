@@ -283,6 +283,7 @@ header{
     padding: 5px;
     box-shadow:-5px 5px 10px rgba(128, 128, 128, 0.603);
     font-family: 'Playfair Display', serif;
+    color: #000;
 }
 .chart-sectionn{
     width:25%;
