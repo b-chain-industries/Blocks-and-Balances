@@ -128,7 +128,7 @@ function childApproved(x){
         requestId:x
     }
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/childApproval.php',params,function(data){
-    console.log(data)
+        getPending();
     })
 }
 
@@ -174,8 +174,9 @@ function getPending(){
                     <span>`+comment.username+`</span><br/>
                     <span>`+comment.comment+`</span>
                 </div>`;
-               
-                
+
+                //setting comment section to comment template to place in the html format by adding one to it
+
                 commentSection += commentTemplate;
             });
           
@@ -201,7 +202,9 @@ function getPending(){
             <span id="statusDisplay">`+master2+": "+element.pendingRequest.miner_approval+`</span>`
             //child approval
             if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
+
                 approvedHtml += `<button class="approve-button" onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
+
             }
             //template is for placing Amount,description and status of user
             var template =

@@ -1,8 +1,17 @@
 <div id="content">
 
-    <div id="messanges">messanger</div>
 
-   
+    <div class="chat_container">
+        <div id="messages" class="container">
+        </div>
+        <div class="input">
+            <textarea id="chat_input"></textarea>
+            <button onclick="postMessages()" id="send_mess">Send</button>
+        </div>
+    </div>
+    <script>
+        clearInterval(getMssg);
+        var getMssg = setInterval(getMessages, 500);
+    </script>
 
-    <script type="text/javascript">getMessages();</script>
 </div>
