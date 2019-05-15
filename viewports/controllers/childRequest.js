@@ -191,13 +191,23 @@ function getPending(x){
                 var commentSection = "";
                 //making a loop that goes through each comments
                 element.comments.forEach(comment =>{
+                    var commentPos = "";
+                    if(comment.username === user.username){
+                        commentPos = "comment-position";
+                    }
+
                     //placing our information in html template
                     var commentTemplate = 
                     ` <div class="comment">
-                        <span>`+comment.username+`</span><br/>
-                        <span>`+comment.comment+`</span>
+                        <span class="`+commentPos+` comment-color">`+comment.username+`</span><br/>
+                        <span class="`+commentPos+`">`+comment.comment+`</span>
                     </div>`;
-    
+                    console.log(commentTemplate);
+                    
+                    console.log(comment.username)
+                    console.log(user.username)
+
+                    
                     //setting comment section to comment template to place in the html format by adding one to it
     
                     commentSection += commentTemplate;
@@ -259,6 +269,7 @@ function getPending(x){
                         <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                             `+commentSection+`
                         </div>
+                        
                         <div class="txt-holder">
                             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
                             <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)' id="commentSubmit`+element.pendingRequest.request_id+`">Submit</button>
@@ -271,6 +282,7 @@ function getPending(x){
                     </div>
                 </div>
             </div>`
+          
             // setting our information in our HTML file
             document.getElementById('displayPending').innerHTML += template;
             $("#requestLoader").hide();
@@ -278,7 +290,7 @@ function getPending(x){
     
         });
         }
-        
+       
 
     });
     
