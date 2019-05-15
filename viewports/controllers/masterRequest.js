@@ -39,27 +39,6 @@ function getMasterPending(x){
         });
 
 // HTML pending request template
-        let template = 
-        `<div class="pending-holder">
-                <div class="tablee pending">
-                    <div class="amountt chart-sectionn">
-                        <span>` +element.pendingRequest.amount+ `</span>
-                    </div>
-                    <div class="descriptionn chart-sectionn">
-                        <span>` +element.pendingRequest.description+ `</span>
-                    </div>
-                    <div class="statuss">
-                        <input  name="requestStatus" type="radio" value="1"/>
-                        <span class="master-radio">Approve</span>
-                        <input class="master-position" name="requestStatus" type="radio" value="0"/>
-                        <span class="master-position master-radio">Denied</span>
-                        <button class="statussbtn"onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
-                    </div>
-                    <div class="commentbtn-holder">
-                        <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
-                        <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
-                    </div>
-                </div>
         
         // HTML pending request template
                 let template = 
