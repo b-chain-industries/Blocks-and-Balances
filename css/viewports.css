@@ -351,11 +351,13 @@ header{
 /* master request radio button */
 .master-radio{
     padding-left: 5px;
+    color: #fff;
 }
 /*  master request status display*/
 .master-position{
     position: relative;
     left: 10px;
+    color: #fff;
 }
 .border{
     margin-top: 40px;

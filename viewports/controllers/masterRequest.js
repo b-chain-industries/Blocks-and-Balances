@@ -48,7 +48,7 @@ function getMasterPending(x){
                             <div class="descriptionn chart-sectionn">
                                 <span>` +element.pendingRequest.description+ `</span>
                             </div>
-                            <div id="statuss">
+                            <div class="statuss">
                                 <input name="requestStatus" type="radio" value="1"/>
                                 <span class="master-radio">Approve</span>
                                 <input class="master-position"name="requestStatus" type="radio" value="0"/>
