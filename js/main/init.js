@@ -69,10 +69,11 @@ function initNav(status){
          <div class="tab" onclick="getViewport('messenger')"><i class="fas fa-comment"></i>Messenger</div>
          <div class="tab"><i class="fab fa-vimeo-v fas"></i>Overview</div>
         <div class="tab" ><i class="far fa-newspaper fas"></i>News</div>
-         <div class="tab" "><i class="fas fa-chart-line"></i>Gain Value</div>
+         <div class="tab"><i class="fas fa-chart-line"></i>Gain Value</div>
          <div class="tab"><i class="fas fa-calendar-week"></i>Events</div>
         <div class="tab" ><i class="fas fa-address-book"></i>Contact Us</div>
-         <div class="tab" "><i class="fas fa-info"></i>About</div>`;
+         <div class="tab"><i class="fas fa-info"></i>About</div>
+         <div class="tab" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Logout</div>`;
     } else {
         statusNav.innerHTML =
         `<div id="initTab" class="tab" onclick="getViewport('masterRequest')"><i class="fas fa-exchange-alt"></i>Requests</div>
@@ -83,7 +84,18 @@ function initNav(status){
          <div class="tab" ><i class="fas fa-chart-line"></i>Gain Value</div>
          <div class="tab"><i class="fas fa-calendar-week"></i>Events</div>
         <div class="tab" ><i class="fas fa-address-book"></i>Contact Us</div>
-         <div class="tab" "><i class="fas fa-info"></i>About</div>`;
+         <div class="tab" "><i class="fas fa-info"></i>About</div>
+         <div class="tab" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Logout</div>`;
 
     }
+}
+
+function logout(){
+    console.log(user.ID+" is logging out...");
+
+    $.post("https://blocksandbalancesserver.000webhostapp.com/user/logout.php", {id: user.ID}, function(data){
+        window.location = "index.html";
+        // console.log(data);
+        
+    })
 }

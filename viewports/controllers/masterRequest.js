@@ -188,7 +188,7 @@ function getMasterPending(){
         
         // console.log(user);
              document.getElementById("master-content").innerHTML += template;
-        
+    }
             })
     }
 
