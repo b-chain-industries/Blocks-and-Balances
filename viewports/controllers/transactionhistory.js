@@ -11,14 +11,16 @@ function getTransactionHistory(){
         
 
         transHist.forEach(function(result){
-
+            var $display;
             var transHistClass = result.approved
 
             if (transHistClass == 1) {
                 transHistClass = `histApproved`
+                $display = "Approved";
             }
             else {
                 transHistClass = `histDenied` 
+                $display = "Denied";
             }
 
 
@@ -27,8 +29,11 @@ function getTransactionHistory(){
                                     <div class="amount chart-section">
                                         Amount: `+result.amount+`
                                     </div>
-                                    <div class="description wchart-section">
+                                    <div class="description chart-section">
                                         `+result.description+`
+                                    </div>
+                                    <div class="transactionStatus">
+                                    `+$display+`
                                     </div>
                                 </div>
                             </div>

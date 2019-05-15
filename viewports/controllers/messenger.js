@@ -19,7 +19,8 @@ function getMessages(){
             let otherUserTemplate = `<div class="other_user">
                                         <div class="message_text">`
                                             +messageText+
-                                        `</div>                    <div class="time_stamp">`       +timeStamp+
+                                        `</div>               
+                                        <div class="time_stamp">`+timeStamp+
                                         `</div>
                                     </div>`
             if (loggedInUser == result.user_id) {
