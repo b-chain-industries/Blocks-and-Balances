@@ -9,8 +9,9 @@ function getMasterPending(){
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", param, function( data ) { 
         document.getElementById("master-content").innerHTML = "";
 // Turing a String into object, array
-    const block = JSON.parse(data);if(block.length == 0){
-        var template = "No request at this time.";
+    const block = JSON.parse(data);
+    if(block.length == 0){
+        var template = "<h2 class='table title-display'>No request at this time.</h2>";
         document.getElementById("master-content").innerHTML = template;
     }else{
         // Forms the pending list, Loop
