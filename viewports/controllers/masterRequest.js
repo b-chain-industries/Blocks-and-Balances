@@ -6,13 +6,18 @@ function getMasterPending(){
         userId: user.ID 
     }
     
+    
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", param, function( data ) { 
         document.getElementById("master-content").innerHTML = "";
 // Turing a String into object, array
-    const block = JSON.parse(data);if(block.length == 0){
+    const block = JSON.parse(data);
+    
+    if(block.length == 0){
         var template = "No request at this time.";
         document.getElementById("master-content").innerHTML = template;
+        
     }else{
+        
         // Forms the pending list, Loop
     block.forEach(function(element){
 
@@ -111,7 +116,7 @@ function getMasterPending(){
                         </div>
                 </div>`;
         // Adds the templete to the HTML target
-        
+ }
         
         // This HTML template will will be sent to miner if approved or back to child if denied
          if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
@@ -187,8 +192,8 @@ function getMasterPending(){
         
         
         // console.log(user);
-             document.getElementById("master-content").innerHTML += template;
-    }
+    
+    document.getElementById("master-content").innerHTML += template;
             })
     }
 
