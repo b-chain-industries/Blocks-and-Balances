@@ -36,12 +36,12 @@ function getMasterPending(){
                     <div class="descriptionn chart-sectionn">
                         <span>` +element.pendingRequest.description+ `</span>
                     </div>
-                    <div id="statuss">
+                    <div class="statuss">
                         <input name="requestStatus" type="radio" value="1"/>
                         <span>Approve</span>
                         <input name="requestStatus" type="radio" value="0"/>
                         <span>Denied</span>
-                        <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+                        <button class="statussbtn"onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
                     </div>
                     <div class="commentbtn-holder">
                         <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
@@ -75,7 +75,7 @@ function getMasterPending(){
                 <div class="descriptionn chart-sectionn">
                     <span>` +element.pendingRequest.description+ `</span>
                 </div>
-                <div id="statuss">
+                <div class="statuss">
                 </div>
                 <div class="commentbtn-holder">
                     <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
@@ -102,13 +102,13 @@ console.log();
  if (element.pendingRequest.miner_approval != null && element.pendingRequest.miner == user.ID){
     template = `<div class="pending-holder">
                     <div class="tablee pending">
-                        <div class="amountt chart-sectionn">
+                        <div class="amount chart-section">
                             <span>` +element.pendingRequest.amount+ `</span>
                         </div>
-                        <div class="descriptionn chart-sectionn">
+                        <div class="description chart-section">
                             <span>` +element.pendingRequest.description+ `</span>
                         </div>
-                            <div id="statuss">
+                            <div class="status">
                             </div>
                             <div class="commentbtn-holder">
                                 <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
