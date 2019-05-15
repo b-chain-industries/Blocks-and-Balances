@@ -224,7 +224,7 @@ header{
 }
 /* amount  */
 .amount{
-    
+    color: #fff;
     width: 25%;
 }
 .amount span{
@@ -466,65 +466,100 @@ header{
 
 /* ------End of Child Request------- */
 
+/* Begin Transacton History Styles */
+
+.histApproved {
+    
+    background-color: green;
+
+}
+
+.histDenied {
+    background-color: red; 
+}
+
+/* End Transaction History Styles */
+
 
 /* Begin Messenger Styles */
 
 .chat_container {
-    height: 80%;
+    height: 90.5%;
     width: 100%;
     max-width: 800px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: -130px;
+}
+.messenger-holder{
+    width: 100%;
 }
 
 #messages {
-    border: 5px #000 ridge;
-    width: 100%;
+    border: 2px rgb(100, 100, 100) solid;
+    width: 60%;
     height: 500px;
     margin-bottom: 10px;
     padding: 10px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: -10px 5px 20px grey;
 }
 
 .other_user {
     width: 200px;
-    background-color: red;
+    background-color: rgb(198, 198, 198);
     border-radius: 7px;
     align-self: flex-start;
     position: relative;
-    padding: 10px; 
+    padding: 5px; 
     margin-bottom: 3px;
+    color:#000; 
+    box-shadow: -5px 5px 10px grey;
 }
 
 .user {
     width: 200px;
-    background-color: grey;
+    background-color: rgb(45, 117, 224);
+    color: #fff;
     border-radius: 7px;
     align-self: flex-end;
     position: relative;
     padding: 10px; 
     margin-bottom: 3px;
+    box-shadow: -5px 5px 10px grey;
 }
 
 .input {
     display: flex;
-    height: 40px;
+    height: 50px;
 
 }
 
 #chat_input {
     resize: none;
-    width: 100%;
-    height: 80%;
-    border: 5px #000 ridge;
+    width: 390px;
+    height: 40px;
+    border: 2px rgb(100, 100, 100) solid;
+    border-radius: 5px;
+    padding: 5px;
+    color: #000;
 }
 
 #send_mess {
     width: 80px;
-    height: 80%;
-    border: 3px ridge #000;
+    height: 40px;
     margin-left: 10px;
+    border: 2px rgb(100, 100, 100) solid;
+    border-radius: 5px;
 }
+
 
 .message_text {
     margin: 5px;
@@ -534,6 +569,7 @@ header{
  position: absolute;
  right: 5px;
  bottom: 0px;
+ padding-bottom: 
 }
 
 /* End Messenger Styles */

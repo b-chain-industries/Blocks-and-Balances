@@ -5,7 +5,6 @@ function getMasterPending(){
         relationId: user.relation_id,
         userId: user.ID 
     }
-    console.log(param);
     
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", param, function( data ) { 
         document.getElementById("master-content").innerHTML = "";
@@ -28,93 +27,108 @@ function getMasterPending(){
         });
 
 // HTML pending request template
-        let template = `<div class="pending-holder">
-         <div class="table pending">
-             <div class="amount chart-section">
-                 <span>` +element.pendingRequest.amount+ `</span>
-             </div>
-             <div class="description chart-section">
-                 <span>` +element.pendingRequest.description+ `</span>
-             </div>
-             <div id="statuss">
-                 <input name="requestStatus" type="radio" value="1"/>
-                 <span>Approve</span>
-                 <input name="requestStatus" type="radio" value="0"/>
-                 <span>Denied</span>
-                 <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
-             </div>
- 
-         </div>
- 
-         <div class="comment-section">
-                 <span id="commentBtn">Comment</span>
-                 <div class="display-comment">
-                     `+commentTemplate+`
-                 </div>
-                 <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
-                 <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
-             </div>
- 
-     </div>`;
+        let template = 
+        `<div class="pending-holder">
+                <div class="tablee pending">
+                    <div class="amountt chart-sectionn">
+                        <span>` +element.pendingRequest.amount+ `</span>
+                    </div>
+                    <div class="descriptionn chart-sectionn">
+                        <span>` +element.pendingRequest.description+ `</span>
+                    </div>
+                    <div id="statuss">
+                        <input name="requestStatus" type="radio" value="1"/>
+                        <span>Approve</span>
+                        <input name="requestStatus" type="radio" value="0"/>
+                        <span>Denied</span>
+                        <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+                    </div>
+                    <div class="commentbtn-holder">
+                        <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                        <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
+                    </div>
+                </div>
+        
+                <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
+                <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                    <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                        `+commentTemplate+`
+                    </div>
+                    <div class="txt-holder">
+                        <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                        <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                    </div>
+                    
+                </div>
+        </div>`;
 // Adds the templete to the HTML target
-console.log(element.pendingRequest.master_approval);
-console.log(element.pendingRequest.master_requested);
-console.log(user.ID);
+
 
 // This HTML template will will be sent to miner if approved or back to child if denied
  if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
      template = 
      `<div class="pending-holder">
-        <div class="tablee pending">
-            <div class="amountt chart-sectionn">
-                <span>` +element.pendingRequest.amount+ `</span>
+            <div class="tablee pending">
+                <div class="amountt chart-sectionn">
+                    <span>` +element.pendingRequest.amount+ `</span>
+                </div>
+                <div class="descriptionn chart-sectionn">
+                    <span>` +element.pendingRequest.description+ `</span>
+                </div>
+                <div id="statuss">
+                </div>
+                <div class="commentbtn-holder">
+                    <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                    <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
+                </div>
             </div>
-            <div class="descriptionn chart-sectionn">
-                <span>` +element.pendingRequest.description+ `</span>
-            </div>
-            <div id="status">
-            
-            </div>
-            
-        </div>
 
-    <div class="comment-section">
-            <span id="commentBtn">Comment</span>
-            <div class="display-comment">
-                `+commentTemplate+`
+            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
+            <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                    `+commentTemplate+`
+                </div>
+                <div class="txt-holder">
+                    <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                    <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                </div>
+                
             </div>
-            <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
-            <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
-        </div>
-
-</div>`
+        </div>`
  }
+console.log();
 
  // This HTML template will return from miner without button if clicked approved or denied
  if (element.pendingRequest.miner_approval != null && element.pendingRequest.miner == user.ID){
     template = `<div class="pending-holder">
-   <div class="table pending">
-       <div class="amount chart-sectionn">
-           <span>` +element.pendingRequest.amount+ `</span>
-       </div>
-       <div class="description chart-section">
-           <span>` +element.pendingRequest.description+ `</span>
-       </div>
-        <div id="status">
-           
-        </div>
-   </div>
+                    <div class="tablee pending">
+                        <div class="amountt chart-sectionn">
+                            <span>` +element.pendingRequest.amount+ `</span>
+                        </div>
+                        <div class="descriptionn chart-sectionn">
+                            <span>` +element.pendingRequest.description+ `</span>
+                        </div>
+                            <div id="statuss">
+                            </div>
+                            <div class="commentbtn-holder">
+                                <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                                <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
+                            </div>
+                    </div>
 
-   <div class="comment-section">
-           <span id="commentBtn">Comment</span>
-           <div class="display-comment">
-               `+commentTemplate+`
-           </div>
-           <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment"></textarea>
-           <button onclick = "masterRequest(`+element.pendingRequest.request_id+`)">Submit</button>
-       </div>
-
-</div>`
+                    <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
+                            <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                                <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                                    `+commentTemplate+`
+                                </div>
+                                <div class="txt-holder">
+                                    <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                                    <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                </div>`
 }
 
 
@@ -157,7 +171,6 @@ function submitRequest(x){
     
     }
     $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/approveTransaction.php', param, function (data){
-    console.log(data);
     getMasterPending()
     
     })
