@@ -29,6 +29,10 @@ function getMessages(){
             else{
                 document.getElementById("messages").innerHTML += otherUserTemplate;
             }
+
+            clearInterval(getMssg);
+            var getMssg = setInterval(getMessages, 500);
+
         });
 
         function scrollBottom (messages) {

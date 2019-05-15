@@ -5,23 +5,14 @@ function getTransactionHistory(){
     $.post("http://blocksandbalancesserver.000webhostapp.com/transactions/getTransHist.php", params,
      function(result){
         const transHist = JSON.parse(result)
-
-            console.log(transHist)
-
-        
-
         transHist.forEach(function(result){
-
             var transHistClass = result.approved
-
             if (transHistClass == 1) {
                 transHistClass = `histApproved`
             }
             else {
                 transHistClass = `histDenied` 
             }
-
-
             let template = `<div class="pending-holder ` +transHistClass+ `">
                                 <div class="table">
                                     <div class="amount chart-section">
