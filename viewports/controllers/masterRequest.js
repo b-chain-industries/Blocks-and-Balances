@@ -91,10 +91,10 @@ function getMasterPending(x){
              template = 
              `<div class="pending-holder">
                     <div class="tablee pending">
-                        <div class="amount chart-section">
+                        <div class="amountt chart-sectionn">
                             <span>` +element.pendingRequest.amount+ `</span>
                         </div>
-                        <div class="description chart-section">
+                        <div class="descriptionn chart-sectionn">
                             <span>` +element.pendingRequest.description+ `</span>
                         </div>
 
