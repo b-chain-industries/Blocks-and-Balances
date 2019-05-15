@@ -1,7 +1,6 @@
 
 function getMessages(){
-    $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id},
-     function(data){
+    $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id}, function(data){
         document.getElementById("messages").innerHTML = "";
         const messages = JSON.parse(data)
         messages.forEach(function(result){
@@ -31,11 +30,12 @@ function getMessages(){
             }
         });
 
+
         function scrollBottom (messages) {
             var div = document.getElementById(messages);
             div.scrollTop = div.scrollHeight - div.clientHeight;
-         }        
-         scrollBottom("messages")
+        }        
+        scrollBottom("messages");
     });
     
 }

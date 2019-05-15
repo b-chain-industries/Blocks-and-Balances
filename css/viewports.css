@@ -436,6 +436,9 @@ header{
     display: none;
     justify-content: space-between;
 }
+.showComments{
+    display: flex;
+}
 /* Arrow button  */
 .arrow{
     transform: rotate(-90deg);
@@ -455,7 +458,7 @@ header{
     resize: none;
     width: 95%;
     height: 140px;
-    display: none;
+    /* display: none; */
     border-radius: 5px;
     background-color: rgb(211, 211, 211);
     border: none;
@@ -570,7 +573,7 @@ header{
     background-color:#4eb5f1;
     transition: all 0.3s ease-out;
 }
-.
+
 
 .message_text {
     margin: 5px;
@@ -580,7 +583,6 @@ header{
  position: absolute;
  right: 5px;
  bottom: 0px;
- padding-bottom: 
 }
 
 /* End Messenger Styles */
