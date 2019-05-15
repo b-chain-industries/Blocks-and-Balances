@@ -1,19 +1,25 @@
 // Fires to make sure everything is in order
-function getMasterPending(){
+function getMasterPending(x){
 // Sending server info to get correct info back
     let param = { 
         relationId: user.relation_id,
         userId: user.ID 
     }
     
+    
     $.post( "http://blocksandbalancesserver.000webhostapp.com/transactions/getTransactions.php", param, function( data ) { 
         document.getElementById("master-content").innerHTML = "";
 // Turing a String into object, array
     const block = JSON.parse(data);
+
+    
     if(block.length == 0){
-        var template = "<h2 class='table title-display'>No request at this time.</h2>";
+        var template = "No request at this time.";
+
         document.getElementById("master-content").innerHTML = template;
+        
     }else{
+        
         // Forms the pending list, Loop
     block.forEach(function(element){
 
@@ -30,6 +36,11 @@ function getMasterPending(){
         // Allows to add more comments below eachother
                     commentTemplate += temp;
                 });
+
+                let showComments = "";
+                if(x == element.pendingRequest.request_id){
+                    showComments = "showComments";
+                }
         
         // HTML pending request template
                 let template = 
@@ -49,19 +60,19 @@ function getMasterPending(){
                                 <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
                             </div>
                             <div class="commentbtn-holder">
-                                <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                                <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
                                 <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                             </div>
                         </div>
         
-                <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
-                <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
+                <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
                     <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                         `+commentTemplate+`
                     </div>
                     <div class="txt-holder">
                         <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                        <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                        <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
                     </div>
                     
                 </div>
@@ -83,13 +94,13 @@ function getMasterPending(){
                 <div class="statuss">
                 </div>
                 <div class="commentbtn-holder">
-                    <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                    <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
                     <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                 </div>
             </div>
 
-            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
-            <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
+            <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
                 <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                     `+commentTemplate+`
                 </div>
@@ -99,20 +110,20 @@ function getMasterPending(){
                 </div>
 
                 
-                        <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
-                        <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                        <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
+                        <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
                             <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                                 `+commentTemplate+`
                             </div>
                             <div class="txt-holder">
                                 <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                                <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                                <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
                             </div>
                             
                         </div>
                 </div>`;
         // Adds the templete to the HTML target
-        
+ }
         
         // This HTML template will will be sent to miner if approved or back to child if denied
          if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
@@ -129,20 +140,20 @@ function getMasterPending(){
                         <div id="statuss">
                         </div>
                         <div class="commentbtn-holder">
-                            <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                            <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
                             <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                         </div>
 
                     </div>
         
-                    <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
-                    <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                    <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
+                    <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
                         <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                             `+commentTemplate+`
                         </div>
                         <div class="txt-holder">
                             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                            <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                            <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
                         </div>
                         
                     </div>
@@ -163,19 +174,19 @@ function getMasterPending(){
                                     <div id="statuss">
                                     </div>
                                     <div class="commentbtn-holder">
-                                        <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                                        <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
                                         <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
                                     </div>
                             </div>
         
-                            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
-                                    <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
+                            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
+                                    <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
                                         <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
                                             `+commentTemplate+`
                                         </div>
                                         <div class="txt-holder">
                                             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                                            <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
+                                            <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
                                         </div>
                                         
                                     </div>
@@ -188,8 +199,8 @@ function getMasterPending(){
         
         
         // console.log(user);
-             document.getElementById("master-content").innerHTML += template;
-    }
+    
+    document.getElementById("master-content").innerHTML += template;
             })
     }
 
@@ -247,9 +258,62 @@ function masterRequest(x){
     //AJAX call to the server to move and transfer the data  
    $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
         
-       getMasterPending();
+       getMasterPending(x);
        
    })
 
 
+}
+
+
+function showCommentsMaster(x){
+    
+    //targetting the elements with the argument
+//    var displayComment = $('#commentDisplay'+x);
+    var $commentHolder = $('#commentHolder'+x);
+   
+   // getting comment section to toggle
+   var $addCommentBtn = $('#addComment'+x);
+   //comment section toggle
+   var $commentSection = $('#commentSection'+x)
+   
+   // arrow button rotate
+  
+    
+
+   function AnimateRotate(d,s){
+    var $arrow = $('#arrow'+x);
+    $({deg: s}).animate({deg: d}, {
+        duration: 500,
+        step: function(now){
+            $arrow.css({
+                 transform: "rotate(" + now + "deg)"
+            });
+        }
+    });
+}
+   
+    //getting the parameters of the array
+   var params = {
+        requestId:x,
+        username:user.username,
+    }
+    //display of comment holder
+    if($commentHolder.css('display') == 'none'){
+        $commentHolder.slideToggle();
+        $commentHolder.css('display','flex');
+        AnimateRotate(90,-90);
+    }else{
+        $commentHolder.hide();
+        AnimateRotate(-90,90);
+    }
+    //display of comment section
+    if($commentSection.css('display') == 'none'){
+        $commentSection.slideToggle();
+    }else{
+        $commentSection.hide();
+    }
+
+    scrollToBottom(x);
+   
 }
