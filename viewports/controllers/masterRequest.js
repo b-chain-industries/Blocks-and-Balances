@@ -55,7 +55,14 @@ function getMasterPending(x){
                                 <span>Approve</span>
                                 <input name="requestStatus" type="radio" value="0"/>
                                 <span>Denied</span>
-                                <button onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+                                <button id="masterApprovalSubmit`+element.pendingRequest.request_id+`" onclick = "submitRequest(`+element.pendingRequest.request_id+`)" >Submit</button>
+                                <div id="masterApprovalLoader`+element.pendingRequest.request_id+`" class="loaderWrapper">
+                                        <div class="loading">
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                    </div></div>
                             </div>
                             <div class="commentbtn-holder">
                                 <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
@@ -70,58 +77,16 @@ function getMasterPending(x){
                     </div>
                     <div class="txt-holder">
                         <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                        <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
+                        <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)' id="commentSubmit`+element.pendingRequest.request_id+`">Submit</button>
+                        <div class="commentLoaderContainer" id="loader`+element.pendingRequest.request_id+`">
+                            <div class="square darkGreen topRight" ></div>
+                            <div class="square lightGreen bottomLeft"></div>
+                        </div>
                     </div>
                     
                 </div>
         </div>`;
 // Adds the templete to the HTML target
-
-
-// This HTML template will will be sent to miner if approved or back to child if denied
- if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
-     template = 
-     `<div class="pending-holder">
-            <div class="tablee pending">
-                <div class="amountt chart-sectionn">
-                    <span>` +element.pendingRequest.amount+ `</span>
-                </div>
-                <div class="descriptionn chart-sectionn">
-                    <span>` +element.pendingRequest.description+ `</span>
-                </div>
-                <div class="statuss">
-                </div>
-                <div class="commentbtn-holder">
-                    <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
-                    <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
-                </div>
-            </div>
-
-            <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
-            <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
-                <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
-                    `+commentTemplate+`
-                </div>
-                <div class="txt-holder">
-                    <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                    <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
-                </div>
-
-                
-                        <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
-                        <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
-                            <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
-                                `+commentTemplate+`
-                            </div>
-                            <div class="txt-holder">
-                                <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                                <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
-                            </div>
-                            
-                        </div>
-                </div>`;
-        // Adds the templete to the HTML target
- }
         
         // This HTML template will will be sent to miner if approved or back to child if denied
          if (element.pendingRequest.master_approval != null && element.pendingRequest.master_requested == user.ID){
@@ -151,7 +116,11 @@ function getMasterPending(x){
                         </div>
                         <div class="txt-holder">
                             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                            <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
+                            <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)' id="commentSubmit`+element.pendingRequest.request_id+`">Submit</button>
+                            <div class="commentLoaderContainer" id="loader`+element.pendingRequest.request_id+`">
+                                <div class="square darkGreen topRight" ></div>
+                                <div class="square lightGreen bottomLeft"></div>
+                            </div>
                         </div>
                         
                     </div>
@@ -184,7 +153,11 @@ function getMasterPending(x){
                                         </div>
                                         <div class="txt-holder">
                                             <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                                            <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)'>Submit</button>
+                                            <button class="submitComment"onclick='masterRequest(`+element.pendingRequest.request_id+`)' id="commentSubmit`+element.pendingRequest.request_id+`">Submit</button>
+                                            <div class="commentLoaderContainer" id="loader`+element.pendingRequest.request_id+`">
+                                                <div class="square darkGreen topRight" ></div>
+                                                <div class="square lightGreen bottomLeft"></div>
+                                            </div>
                                         </div>
                                         
                                     </div>
@@ -215,6 +188,9 @@ function getMasterPending(x){
 
 // Function that submits final request
 function submitRequest(x){
+
+    $("#masterApprovalSubmit"+x).hide();
+    $("#masterApprovalLoader"+x).show();
     
     // variable to name which button was pushed
     let status = "";
@@ -245,6 +221,9 @@ function submitRequest(x){
 
 // Comments from the master to child
 function masterRequest(x){
+    document.getElementById("commentSubmit"+x).style.display = "none";
+    document.getElementById("loader"+x).style.display = "block";
+
     // adds the new comment is the comment box
    var comment = document.getElementById('addComment'+x).value;
     // tells who, where, and what the comment is saying

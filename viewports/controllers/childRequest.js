@@ -139,6 +139,8 @@ function scrollToBottom(x){
 
 
 function childApproved(x){
+    $("#childApprovalSubmit"+x).hide();
+    $("#childApprovalLoader"+x).show();
     var params ={
         requestId:x
     }
@@ -226,7 +228,14 @@ function getPending(x){
                 //child approval
                 if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
     
-                    approvedHtml += `<button class="approve-button" onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
+                    approvedHtml += `<button id="childApprovalSubmit`+element.pendingRequest.request_id+`" class="approve-button" onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>
+                                    <div id="childApprovalLoader`+element.pendingRequest.request_id+`" class="loaderWrapper">
+                                        <div class="loading">
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                    </div></div>`;
     
                 }
 
