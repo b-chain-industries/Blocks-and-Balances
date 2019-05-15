@@ -316,7 +316,16 @@ header{
    color: #000;
    position: relative;
    left: 30px;
+   border-radius: 5px;
+   font-family: 'El Messiri', sans-serif;
+   font-size: 14px;
+   transition: all 0.3s ease-in;
 }
+.statussbtn:hover{
+    background-color: #4095c6;
+    color: #fff;
+}
+
 .status span{
     color: rgb(251, 251, 251);
 }
@@ -338,6 +347,15 @@ header{
 #statusDisplay{
     font-family: 'Source Serif Pro', serif;
     padding-left: 10px;
+}
+/* master request radio button */
+.master-radio{
+    padding-left: 5px;
+}
+/*  master request status display*/
+.master-position{
+    position: relative;
+    left: 10px;
 }
 .border{
     margin-top: 40px;
@@ -407,22 +425,37 @@ header{
 }
 .displayComment{
     width: 65%;
-    background:grey;
+    background:rgba(198, 230, 255, 0.637);
     text-align: left;
     overflow-y: auto;
     max-height: 300px;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px #fff solid;
+    box-shadow: -10px 5px 5px rgb(100, 100, 100); 
 }
 
 .comment{
     margin: 10px;
     border-bottom: 1px solid white;
     color: #fff;
-    width: 95%;
+    width: 97%;
     padding: 5px;
     border-radius: 5px;
     box-shadow: -5px 5px 5px rgba(70, 70, 70, 0.712);
     background-color: rgba(151, 151, 151, 0.692);
     font-family: 'Playfair Display', serif;
+}
+
+.comment-position{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+   
+}
+.comment-color{
+    color: rgb(0, 59, 122);
 }
 .txt-holder{
     width: 30%;
