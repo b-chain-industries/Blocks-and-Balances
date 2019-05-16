@@ -37,6 +37,11 @@ function getMasterPending(x){
 // Allows to add more comments below eachother
             commentTemplate += temp;
         });
+
+        let showComments = "";
+        if(x == element.pendingRequest.request_id){
+            showComments = "showComments";
+        }
         
         // HTML pending request template
                 let template = 
