@@ -1,9 +1,13 @@
 
 function getMessages(){
+    
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id}, function(data){
-        document.getElementById("messages").innerHTML = "";
-        if(JSON.parse(data) !== messages){
-            messages = JSON.parse(data)
+        data =JSON.parse(data);
+        
+        if(data.length !== messages.length){
+            document.getElementById("messages").innerHTML = "";
+            
+            messages = data;
             messages.forEach(function(result){
                 let loggedInUser = user.ID
                 let messageText = result.message

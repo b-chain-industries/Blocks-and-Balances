@@ -181,7 +181,7 @@ function getPending(x){
         // making the string to objects by using JSON.parse
         data = JSON.parse(data);
         if(data.length === 0){
-            var template = `You get nothing!`;
+            var template = `You get nothing! You lose! Good Day Sir!!!`;
             document.getElementById('displayPending').innerHTML = template;
         }else{
 
