@@ -39,8 +39,6 @@ function sendRequest(){
         $('#requestDescription').val('');
         $(radioSelect).prop('checked',false);
         $('#amountSelect').prop('selectedIndex',0)
-        $("#requestLoader").hide();
-        $("#requestSubmit").show();
     })
     
 }
@@ -54,6 +52,8 @@ function request(x){
     if(comment == ""){
         alert("No comments added");
     }else{
+        document.getElementById("commentSubmit"+x).style.display = "none";
+        document.getElementById("loader"+x).style.display = "block";
         var params = {
             requestId:x,
             username:user.username,
@@ -63,7 +63,7 @@ function request(x){
         
         $.post('http://blocksandbalancesserver.000webhostapp.com/transactions/addComment.php', params, function (data){
             
-            getPending();
+            getPending(x);
         
         });
     }
@@ -86,9 +86,9 @@ function showComments(x){
   
     
 
-   function AnimateRotate(d){
+   function AnimateRotate(d,s){
     var $arrow = $('#arrow'+x);
-    $({deg: 0}).animate({deg: d}, {
+    $({deg: s}).animate({deg: d}, {
         duration: 500,
         step: function(now){
             $arrow.css({
@@ -107,10 +107,10 @@ function showComments(x){
     if($commentHolder.css('display') == 'none'){
         $commentHolder.slideToggle();
         $commentHolder.css('display','flex');
-        AnimateRotate(90);
+        AnimateRotate(90,-90);
     }else{
         $commentHolder.hide();
-        AnimateRotate(-90);
+        AnimateRotate(-90,90);
     }
     //display of comment section
     if($commentSection.css('display') == 'none'){
@@ -118,17 +118,29 @@ function showComments(x){
     }else{
         $commentSection.hide();
     }
+
+    scrollToBottom(x);
     //display of add comment button
-   if($addCommentBtn.css('display') == "none"){
-         $addCommentBtn.slideToggle();
-   }else{
-        $addCommentBtn.hide();
-   }
+//    if($addCommentBtn.css('display') == "none"){
+//          $addCommentBtn.slideToggle();
+//    }else{
+//         $addCommentBtn.hide();
+//    }
    
 }
 
+function scrollToBottom(x){
+    var element = document.getElementById("commentDisplay"+x);
+    element.scrollTop = element.scrollHeight;
+
+    console.log(x);
+    
+};
+
 
 function childApproved(x){
+    $("#childApprovalSubmit"+x).hide();
+    $("#childApprovalLoader"+x).show();
     var params ={
         requestId:x
     }
@@ -139,9 +151,12 @@ function childApproved(x){
 
 
 // function for pending requests
-function getPending(){
+function getPending(x){
+    
     let master1 = "";
     let master2 = "";
+
+    
 
     $.post("http://blocksandbalancesserver.000webhostapp.com/user/getRelations.php", {relationId: user.relation_id}, function(data){
         data=JSON.parse(data);
@@ -165,90 +180,128 @@ function getPending(){
             document.getElementById('displayPending').innerHTML = "";
         // making the string to objects by using JSON.parse
         data = JSON.parse(data);
-        // creating a loop to get the amount,description and status of the request
-        data.forEach(element => {
-            
-            //displaying user and comment on browser
-            // creating an empty variable
-            var commentSection = "";
-            //making a loop that goes through each comments
-            element.comments.forEach(comment =>{
-                //placing our information in html template
-                var commentTemplate = 
-                ` <div class="comment">
-                    <span>`+comment.username+`</span><br/>
-                    <span>`+comment.comment+`</span>
-                </div>`;
+        if(data.length === 0){
+            var template = `You get nothing!`;
+            document.getElementById('displayPending').innerHTML = template;
+        }else{
 
-                //setting comment section to comment template to place in the html format by adding one to it
+            // creating a loop to get the amount,description and status of the request
+            data.forEach(element => {
 
-                commentSection += commentTemplate;
-            });
-          
-            //displaying status for master
-            if(element.pendingRequest.master_approval == "0"){
-                element.pendingRequest.master_approval = "Denied"
-            }else if(element.pendingRequest.master_approval == "1"){
-                element.pendingRequest.master_approval = "Approved"
-            }else if(element.pendingRequest.master_approval == null){
-                element.pendingRequest.master_approval = "Pending"
-            }
-            //displaying status for miner
-            if(element.pendingRequest.miner_approval == "0"){
-                element.pendingRequest.miner_approval = "Denied"
-            }else if(element.pendingRequest.miner_approval == "1"){
-                element.pendingRequest.miner_approval = "Approved"
-            }else if(element.pendingRequest.miner_approval == null){
-                element.pendingRequest.miner_approval = "Pending"
-            }
-            //approvalhtml is for to place the transaction status
-            let approvedHtml = 
-            `<span id="statusDisplay">`+master1+": "+element.pendingRequest.master_approval+`</span><br/>
-            <span id="statusDisplay">`+master2+": "+element.pendingRequest.miner_approval+`</span>`
-            //child approval
-            if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
+                //displaying user and comment on browser
+                // creating an empty variable
+                var commentSection = "";
+                //making a loop that goes through each comments
+                element.comments.forEach(comment =>{
+                    var commentPos = "";
+                    if(comment.username === user.username){
+                        commentPos = "comment-position";
+                    }
 
-                approvedHtml += `<button class="approve-button" onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>`
-
-            }
-            //template is for placing Amount,description and status of user
-            var template =
-                `<div class="pending-holder">
-                    <div class="tablee pending">
-                        <div class="amountt chart-sectionn">
-                            <span>Amount: `+ element.pendingRequest.amount +`</span>
-                        </div>
-                        <div class="descriptionn chart-sectionn">
-                            <span>`+element.pendingRequest.description+`</span>
-                        </div>
-                        <div class="statuss">
-                            `+approvedHtml+`
-                        </div>
-                        <div class="commentbtn-holder">
-                            <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
-                            <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
-                    </div>
-                </div>
-             <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section">
-                <div class="comment-holder" id="commentHolder`+element.pendingRequest.request_id+`">
-                    <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
-                        `+commentSection+`
-                    </div>
-                    <div class="txt-holder">
-                        <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
-                        <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)'>Submit</button>
-                    </div>
+                    //placing our information in html template
+                    var commentTemplate = 
+                    ` <div class="comment">
+                        <span class="`+commentPos+` comment-color">`+comment.username+`</span><br/>
+                        <span class="`+commentPos+`">`+comment.comment+`</span>
+                    </div>`;
+                    console.log(commentTemplate);
                     
+                    console.log(comment.username)
+                    console.log(user.username)
+
+                    
+                    //setting comment section to comment template to place in the html format by adding one to it
+    
+                    commentSection += commentTemplate;
+                });
+              
+                //displaying status for master
+                if(element.pendingRequest.master_approval == "0"){
+                    element.pendingRequest.master_approval = "Denied"
+                }else if(element.pendingRequest.master_approval == "1"){
+                    element.pendingRequest.master_approval = "Approved"
+                }else if(element.pendingRequest.master_approval == null){
+                    element.pendingRequest.master_approval = "Pending"
+                }
+                //displaying status for miner
+                if(element.pendingRequest.miner_approval == "0"){
+                    element.pendingRequest.miner_approval = "Denied"
+                }else if(element.pendingRequest.miner_approval == "1"){
+                    element.pendingRequest.miner_approval = "Approved"
+                }else if(element.pendingRequest.miner_approval == null){
+                    element.pendingRequest.miner_approval = "Pending"
+                }
+                //approvalhtml is for to place the transaction status
+                let approvedHtml = 
+                `<span id="statusDisplay">`+master1+": "+element.pendingRequest.master_approval+`</span><br/>
+                <span id="statusDisplay">`+master2+": "+element.pendingRequest.miner_approval+`</span>`
+                //child approval
+                if(element.pendingRequest.master_approval =="Approved" && element.pendingRequest.miner_approval == "Approved"){
+    
+                    approvedHtml += `<button id="childApprovalSubmit`+element.pendingRequest.request_id+`" class="approve-button" onclick="childApproved(`+element.pendingRequest.request_id+`)">Approve</button>
+                                    <div id="childApprovalLoader`+element.pendingRequest.request_id+`" class="loaderWrapper">
+                                        <div class="loading">
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                        <div class="loading-element"></div>
+                                    </div></div>`;
+    
+                }
+
+                let showComments = "";
+                if(x == element.pendingRequest.request_id){
+                    showComments = "showComments";
+                }
+                
+
+                //template is for placing Amount,description and status of user
+                var template =
+                    `<div class="pending-holder">
+                        <div class="tablee pending">
+                            <div class="amountt chart-sectionn">
+                                <span>Amount: `+ element.pendingRequest.amount +`</span>
+                            </div>
+                            <div class="descriptionn chart-sectionn">
+                                <span>`+element.pendingRequest.description+`</span>
+                            </div>
+                            <div class="statuss">
+                                `+approvedHtml+`
+                            </div>
+                            <div class="commentbtn-holder">
+                                <button  class="commentbtn"onclick='showComments(`+element.pendingRequest.request_id+`)'>
+                                <i class="fas fa-arrow-circle-left arrow"id="arrow`+element.pendingRequest.request_id+`"></i></button>
+                        </div>
+                    </div>
+                 <div id="commentSection`+element.pendingRequest.request_id+`"class="comment-section `+showComments+`">
+                    <div class="comment-holder `+showComments+`" id="commentHolder`+element.pendingRequest.request_id+`">
+                        <div id="commentDisplay`+element.pendingRequest.request_id+`" class="displayComment">
+                            `+commentSection+`
+                        </div>
+                        
+                        <div class="txt-holder">
+                            <textarea id="addComment`+element.pendingRequest.request_id+`" placeholder="Write your comment" class="addComment"></textarea>
+                            <button class="submitComment"onclick='request(`+element.pendingRequest.request_id+`)' id="commentSubmit`+element.pendingRequest.request_id+`">Submit</button>
+                                <div class="commentLoaderContainer" id="loader`+element.pendingRequest.request_id+`">
+                                    <div class="square darkGreen topRight" ></div>
+                                    <div class="square lightGreen bottomLeft"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
-            </div>
-        </div>`
-        // setting our information in our HTML file
-        document.getElementById('displayPending').innerHTML += template;
-        
-        
-        
+            </div>`
+          
+            // setting our information in our HTML file
+            document.getElementById('displayPending').innerHTML += template;
+            $("#requestLoader").hide();
+            $("#requestSubmit").show();
+    
         });
+        }
+       
 
     });
+    
     });
 }

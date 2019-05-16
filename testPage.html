@@ -26,6 +26,7 @@
             <h6 class="balance-display font">Current Balance: $<span id="balance"></span></h6>
             <span id="date" class="font"></span>
         </div>
+        
         <div class="brand">
              <img src="img/logo.jpg" alt="logo" class="logo"> 
              <span class="coName"alt="Company's name">Blocks & Balances</span>
@@ -35,7 +36,12 @@
     <div class="display-holder">
         <div class="nav-holder">
             <nav id="statusNav">
-                    <div class="loader"></div>
+                <div id="submitHolder" class="loaderCenter">
+                    <div id="box5" class="submitBox"></div>
+                    <div id="box6" class="submitBox"></div>
+                    <div id="box7" class="submitBox"></div>
+                    <div id="box8" class="submitBox"></div>
+                </div>
             </nav>
         </div>
         
@@ -46,6 +52,7 @@
 </body>
 </html>
 <script type="text/javascript" src="js/main/nav.js"></script>
+<script type="text/javascript" src="js/main/loader.js"></script>
 <script src="viewports/controllers/messenger.js"></script>
 <script src="viewports/controllers/childRequest.js"></script>
 <script src="viewports/controllers/masterRequest.js"></script>
