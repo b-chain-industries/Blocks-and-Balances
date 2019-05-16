@@ -27,10 +27,10 @@ function getTransactionHistory(){
 
                 let template = `<div class="pending-holder ` +transHistClass+ `">
                                     <div class="table-history">
-                                        <div class="amount chart-section">
+                                        <div class="amount chart-section transactionDis">
                                             Amount: `+result.amount+`
                                         </div>
-                                        <div class="description chart-section">
+                                        <div class="description chart-section transactionDis">
                                             `+result.description+`
                                         </div>
                                         <div class="transactionStatus">
