@@ -103,7 +103,7 @@ function getMasterPending(x){
                             <span>` +element.pendingRequest.description+ `</span>
                         </div>
 
-                        <div id="statuss">
+                        <div class="statuss">
                         </div>
                         <div class="commentbtn-holder">
                             <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
@@ -141,7 +141,7 @@ function getMasterPending(x){
                                 <div class="descriptionn chart-sectionn">
                                     <span>` +element.pendingRequest.description+ `</span>
                                 </div>
-                                    <div id="statuss">
+                                    <div class="statuss">
                                     </div>
                                     <div class="commentbtn-holder">
                                         <button  class="commentbtn"onclick='showCommentsMaster(`+element.pendingRequest.request_id+`)'>
