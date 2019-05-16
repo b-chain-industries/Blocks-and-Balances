@@ -14,10 +14,12 @@ function getTransactionHistory(){
             transHist.forEach(function(result){
                 var $display;
                 var transHistClass = result.approved
-
+                var transactionColor = '';
                 if (transHistClass == 1) {
                     transHistClass = `histApproved`
+                    transactionColor = `transactionBlack`
                     $display = "Approved";
+
                 }
                 else {
                     transHistClass = `histDenied` 
@@ -27,14 +29,15 @@ function getTransactionHistory(){
 
                 let template = `<div class="pending-holder ` +transHistClass+ `">
                                     <div class="table-history">
-                                        <div class="amount chart-section">
-                                            Amount: `+result.amount+`
+                                        <div class=" amount chart-section transactionDis">
+                                           <span class="`+transactionColor+`"> Amount:
+                                            `+result.amount+`</span>
                                         </div>
-                                        <div class="description chart-section">
-                                            `+result.description+`
+                                        <div class="description chart-section transactionDis">
+                                            <span class="`+transactionColor+`"> `+result.description+`</span>
                                         </div>
                                         <div class="transactionStatus">
-                                        `+$display+`
+                                            <span class="`+transactionColor+`"> `+$display+`</span>
                                         </div>
                                     </div>
                                 </div>
