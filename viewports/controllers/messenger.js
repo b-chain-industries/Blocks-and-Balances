@@ -1,42 +1,48 @@
 
 function getMessages(){
+    
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id}, function(data){
-        document.getElementById("messages").innerHTML = "";
-        const messages = JSON.parse(data)
-        messages.forEach(function(result){
-            let loggedInUser = user.ID
-            let messageText = result.message
-            let timeStamp = result.timestamp
+        data =JSON.parse(data);
+        
+        if(data.length !== messages.length){
+            document.getElementById("messages").innerHTML = "";
             
-            let userTemplate = `<div class="user">
-                                    <div class="message_text">`
-                                        +messageText+
-                                    `</div>
-                                    <div class="time_stamp">`
-                                        +timeStamp+
-                                    `</div>
-                                </div>`
-            let otherUserTemplate = `<div class="other_user">
+            messages = data;
+            messages.forEach(function(result){
+                let loggedInUser = user.ID
+                let messageText = result.message
+                let timeStamp = result.timestamp
+                
+                let userTemplate = `<div class="user">
                                         <div class="message_text">`
                                             +messageText+
-                                        `</div>               
-                                        <div class="time_stamp">`+timeStamp+
+                                        `</div>
+                                        <div class="time_stamp">`
+                                            +timeStamp+
                                         `</div>
                                     </div>`
-            if (loggedInUser == result.user_id) {
-             document.getElementById("messages").innerHTML += userTemplate;
-            }
-            else{
-                document.getElementById("messages").innerHTML += otherUserTemplate;
-            }
-        });
-
-
-        function scrollBottom (messages) {
-            var div = document.getElementById(messages);
-            div.scrollTop = div.scrollHeight - div.clientHeight;
-        }        
-        scrollBottom("messages");
+                let otherUserTemplate = `<div class="other_user">
+                                            <div class="message_text">`
+                                                +messageText+
+                                            `</div>               
+                                            <div class="time_stamp">`+timeStamp+
+                                            `</div>
+                                        </div>`
+                if (loggedInUser == result.user_id) {
+                 document.getElementById("messages").innerHTML += userTemplate;
+                }
+                else{
+                    document.getElementById("messages").innerHTML += otherUserTemplate;
+                }
+            });
+    
+    
+            function scrollBottom (messages) {
+                var div = document.getElementById(messages);
+                div.scrollTop = div.scrollHeight - div.clientHeight;
+            }        
+            scrollBottom("messages");
+        }
     });
     
 }

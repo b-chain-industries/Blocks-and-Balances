@@ -262,10 +262,10 @@ header{
     box-shadow: -10px 5px 5px grey;
     transition: all 0.3s ease-in;
 }
+
 .tablee:hover{
     background-color: #2b2e34;
     transition: all 0.3s ease-out;
-
 }
 
 .description{
@@ -557,6 +557,7 @@ header{
     border-radius: 5px;
     box-shadow: -10px 5px 5px rgba(67, 67, 67, 0.735);
 }
+
 /* End Transaction History Styles */
 
 

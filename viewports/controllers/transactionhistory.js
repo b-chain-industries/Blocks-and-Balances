@@ -35,6 +35,7 @@ function getTransactionHistory(){
                                         </div>
                                         <div class="description chart-section transactionDis">
                                             <span class="`+transactionColor+`"> `+result.description+`</span>
+
                                         </div>
                                         <div class="transactionStatus">
                                             <span class="`+transactionColor+`"> `+$display+`</span>
