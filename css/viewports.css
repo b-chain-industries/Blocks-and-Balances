@@ -7,6 +7,7 @@ test page style ****************/
 @import url('https://fonts.googleapis.com/css?family=Alegreya');
 @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
 /* header */
 body{
     background-color: #b19c84;
@@ -259,17 +260,14 @@ header{
     align-items: center;
     border-bottom: 1px solid rgb(200, 200, 200);
     box-shadow: -10px 5px 5px grey;
+    transition: all 0.3s ease-in;
 }
-.table-history{
-    width: 100%;
-    height: 70px;
-    background-color: #DFE4C4;
-    display: flex;
-    color: #000;
-    align-items: center;
-    justify-content: space-around;
-    padding-left: 30px;
+
+.tablee:hover{
+    background-color: #2b2e34;
+    transition: all 0.3s ease-out;
 }
+
 .description{
     width: 30%;
     color: #fff;
@@ -304,6 +302,8 @@ header{
 .chart-sectionn span, .chart-sectionn{
     color: rgb(251, 251, 251);
 }
+
+
 .status{
     width: 20%;
     display: flex;
@@ -311,6 +311,7 @@ header{
     align-items: center;
 
 }
+
 .statuss{
     color: #fff;
     width: 20%;
@@ -387,7 +388,6 @@ header{
     border-bottom: 1px solid rgb(200, 200, 200);
     z-index: 20;
     display: none;
-    height: 90vh;
     /* display: flex;
     justify-content: space-between; */
 }
@@ -523,23 +523,41 @@ header{
 /* Begin Transacton History Styles */
 
 .histApproved {
-    
-    background-color: #8ca690;
+    background-color: #cdc9b0;
     border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.histApproved:hover{
+    background-color: #9b998a;
+    transition: all 0.3s ease-out;
+}
+.histDenied {
+    background-color: rgb(101, 79, 69); 
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.histDenied:hover{
+    background-color: rgb(57, 45, 40); 
+    transition: all 0.3s ease;
+}
+.transactionBlack{
+    color: #000 !important;
+}
+.transactionStatus,.transactionDis{
+    color:#fff;
 }
 
-.histDenied {
-    background-color: rgb(57, 29, 29); 
+.table-history{
+    color: inherit;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 5px;
+    box-shadow: -10px 5px 5px rgba(67, 67, 67, 0.735);
 }
-.transactionStatus{
-    color:#000;
-}
-/* display color for transaction history */
-.transactionDis{
-    color: #000;
-}
-/* end of transaction history */
+
 /* End Transaction History Styles */
 
 
@@ -548,16 +566,16 @@ header{
 .chat_container {
     height: 90.5%;
     width: 100%;
-    max-width: 800px;
-    padding-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: none;
     position: relative;
-    left: -130px;
+    left: -100px; 
 }
 .messenger-holder{
     width: 100%;
+    
 }
 
 #messages {
@@ -569,6 +587,7 @@ header{
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     box-shadow: -10px 5px 20px grey;
@@ -596,7 +615,6 @@ header{
     padding: 10px; 
     margin-bottom: 3px;
     box-shadow: -5px 5px 10px grey;
-    height: auto;
 }
 
 .input {
@@ -635,6 +653,8 @@ header{
  position: relative;
  left: 135px;
  font-size: 12px;
+ font-family: 'Vollkorn', serif;
+ display: inline-block;
 }
 
 /* End Messenger Styles */
