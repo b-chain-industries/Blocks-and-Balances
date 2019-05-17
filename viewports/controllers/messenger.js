@@ -55,9 +55,6 @@ function postMessages(){
 
         $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params, function(messageResponse){
             getMessages()
-                var $inputChat = $('#chat_input');
-                 $inputChat.value='';
-
+            document.getElementById('chat_input').value='';       
     
-    })
 }
