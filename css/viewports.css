@@ -526,19 +526,23 @@ header{
     background-color: #cdc9b0;
     border-radius: 5px;
     transition: all 0.3s ease;
+
 }
 .histApproved:hover{
     background-color: #9b998a;
     transition: all 0.3s ease-out;
+    border: 1px solid #fff;
 }
 .histDenied {
     background-color: rgb(101, 79, 69); 
     border-radius: 5px;
     transition: all 0.3s ease;
+   
 }
 .histDenied:hover{
     background-color: rgb(57, 45, 40); 
     transition: all 0.3s ease;
+    border: 1px solid #fff;
 }
 .transactionBlack{
     color: #000 !important;
