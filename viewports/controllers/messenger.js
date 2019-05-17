@@ -4,7 +4,7 @@ function getMessages(){
     $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/getMessages.php", {relationId: user.relation_id}, function(data){
         data =JSON.parse(data);
         
-        if(data.length !== messages.length){
+        if(data.length !== messages.length || data.length == 0){
             document.getElementById("messages").innerHTML = "";
             
             messages = data;
@@ -56,5 +56,5 @@ function postMessages(){
         $.post("http://blocksandbalancesserver.000webhostapp.com/messenger/postMessage.php", params, function(messageResponse){
             getMessages()
             document.getElementById('chat_input').value='';       
-    
+        })
 }
